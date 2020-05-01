@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# don't forget to chmod +x <this filename> to make it executable  
+# don't forget tomake it executable  
+# chmod +x user_add.sh  
 # have to launch with "sudo" to create user - 
-# $ sudo ./user_test.sh <user>  
+# $ sudo ./user_add.sh <user>  
 
 if id "$1" > /dev/null 2>&1;  then
     echo "\"$1\" : \"found\""
