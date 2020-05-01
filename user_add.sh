@@ -1,9 +1,14 @@
 #!/bin/bash
 
-# don't forget tomake it executable  
+# -DANGER-
+# this creates a user, adds them to sudoer, and sets their password the same as their username  
+# only use this for testing purposes!  
+
+# don't forget to make it executable  
 # chmod +x user_add.sh  
 # have to launch with "sudo" to create user - 
-# $ sudo ./user_add.sh <user>  
+# sudo ./user_add.sh <user>  
+
 
 if id "$1" > /dev/null 2>&1;  then
     echo "\"$1\" : \"found\""
