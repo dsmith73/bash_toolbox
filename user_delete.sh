@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# don't forget to chmod +x <this filename> to make it executable  
+# -DANGER-
+# this locks the user, kills their processes, removed crons, and deletes the user & /home  
+
+# don't forget to make it executable  
+# chmod +x user_delete.sh    
 # have to launch with "sudo" to delete user - 
 # $ sudo ./user_delete.sh <user>  
 
