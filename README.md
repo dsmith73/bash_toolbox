@@ -1,6 +1,6 @@
 # bash_toolbox
 
-> This is where I'll store my scripts as I create them  
+> This is where I'll store scripts as I discover/invent/learn  
 
 **WARNING**: _use these at your own risk_  
 
