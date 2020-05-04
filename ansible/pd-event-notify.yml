@@ -1,0 +1,60 @@
+---
+## send payload to PagerDuty to notify team of an issue via ansible    
+  ## https://v2.developer.pagerduty.com/docs/send-an-event-events-api-v2  
+
+## TRIGGER PagerDuty Alert using URI module to POST to events/v2  
+- name: "Create PD alert for {{ item }}"
+  uri:
+    url: "https://events.pagerduty.com/v2/enqueue"
+    method: POST
+    return_content: yes
+    force_basic_auth: no
+    body_format: json
+    body:
+      ## This is the 32 character Integration Key for an integration on a service or on a global ruleset.  
+      routing_key: "{{ PAGERDUTY_INTEGRATION_KEY }}"
+      event_action: "trigger"
+      client_url: "{{ item }}"
+      ## Deduplication key for correlating triggers and resolves.  
+      ## The maximum permitted length of this property is 255 characters.  
+      dedup_key: "{{ item }}-{{ created }}"
+      payload:
+        summary: "Your top level summary of the issue (Business speak)"
+        source: "Ansible"
+        ## critical, error, warning or info  
+        severity: "critical"
+        #timestamp: ""
+        ## Component of the source machine that is responsible for the event, for example mysql or eth0  
+        component: "{{ item }}"
+        ## Logical grouping of components of a service, for example app-stack  
+        group: "XXXXXXXXXXXXXX"
+        ## The class/type of the event, for example ping failure or cpu load  
+        class: "XXXXXXXXXXXXXX"
+        ## Additional details about the event and affected system  
+        custom_details: {
+          # These are custom key:value pairs that you create
+          Summary: "Alert IF {{ item }}  blah blah blah",
+          XXXXXXXXXXXXXX: "{{ item }}",
+          ChanXXXXXXXXXXXXXXged: "XXXXXXXXXXXXXX",
+          action required: "Perform XXXXXXXXXXXXXX on {{ item }}",
+          triggering event: "Where You called this task from... example.yml / Stackstorm / Prometheus ? etc...",
+          XXXXXXXXXXXXXX: "{{ XXXXXXXXXXXXXX }}"
+          }
+      ## List of images to include.  
+      #images:[{  }]	
+      ## List of links to include.  
+      links: [{
+        # I like to include a link to where this was called from
+        href: "https://github.com/dsmith73/ansible/tree/master/XXXXXXXXXXXXXX",
+        text: "XXXXXXXXXXXXXX.yml in GitHub"
+      }]
+    status_code: 
+      - 100
+      - 200
+      - 201
+      - 202
+  register: alert_created
+
+## I usually like to also Include Slack Notification  
+# - name: "Send notification to Slack"
+  # include: slack-message.yml
