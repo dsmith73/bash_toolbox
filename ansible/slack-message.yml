@@ -1,0 +1,14 @@
+---
+####    Send Message to Slack    ####
+- name: "Send notification message to Slack"
+  slack:
+    token: '{{ slack_token }}'
+    channel: "{{ slack_channel }}"
+    domain: "{{ slack_domain }}"
+    ## Color value specified should be either one of ['normal', 'good', 'warning', 'danger'] or  
+    ## any valid hex value with length 3 or 6."  
+    color: "danger"
+    link_names: 1
+    parse: "full"
+    msg: "XXXXXXXXXXXXXX test for {{ item }} `FAILED`.\nIt should XXXXXXXXXXXXXX.\n{{ item }} returned the following results -\nXXXXXXXXXXXXXX\nXXXXXXXXXXXXXX."
+
