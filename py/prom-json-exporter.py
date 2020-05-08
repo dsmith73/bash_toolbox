@@ -11,6 +11,8 @@
 
 # pip install prometheus_client requests
 
+# python prom-json-exporter.py 9887 http://host/path/to/metrics.json
+  
 from prometheus_client import start_http_server, Metric, REGISTRY
 import json
 import requests
