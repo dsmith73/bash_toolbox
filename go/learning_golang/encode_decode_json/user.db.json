@@ -1,0 +1,20 @@
+{
+    "Users": [
+        {
+            "Username": "dsmith73",
+            "Password": "change me",
+            "Email": "dsmith73@gmail.com"
+        },
+        {
+            "Username": "winnie",
+            "Password": "you must change me",
+            "Email": "w.busta@outlook.com"
+        },
+        {
+            "Username": "chada",
+            "Password": "please change me",
+            "Email": "chada1370@yahoo.com"
+        }
+    ],
+    "Type": "simple"
+}

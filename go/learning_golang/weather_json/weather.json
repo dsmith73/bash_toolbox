@@ -1,0 +1,11 @@
+{
+    "location": "Indianapolis",
+    "weather": "sunny",
+    "temperature": 85,
+    "fahrenheit": true,
+    "temp_forecast": [ 88, 79, 73 ],
+    "wind": {
+        "direction": "nw",
+        "speed": 15
+    }
+}
