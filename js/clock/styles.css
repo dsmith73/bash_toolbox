@@ -1,0 +1,231 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+    font-family: 'Emplema One', sans-serif;
+    font-size: 1.5rem;
+
+    /* color variables for light/dark-mode */
+    --color-toggle: rgba(206, 206, 206, 0.473);
+    --bg: linear-gradient(145deg, #262626, #000);
+    --color-sec: rgb(194, 0, 0);
+    --color-hand: #aa5b00;
+    --color-center-button: #414df0;
+    -color-half: rgb(17, 217, 224);
+    --color-number: #414df0;
+    --clock-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+                    inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+                    0 15px 15px rgba(0, 0, 0, 0.05),
+                    inset 0 15px 15px rgba(0, 0, 0, 0.05);
+    --color-clock: rgba(26, 26, 26, .5);
+    --color-15m: #36ade4;
+    --color-12h: rgb(233, 233, 233);
+}
+
+html[data-theme='light'] {
+    --color-toggle: rgb(209, 209, 209);
+    --color-tg-back: rgba(60, 148, 199, 0.767);
+    --bg: linear-gradient(180deg, #c7c7c7, rgb(255, 255, 255));
+    --color-sec: red;
+    --color-hand: #723d00;
+    --color-center-button: #252ea1;
+    --clock-shadow: 0 15px -15px rgba(0, 0, 0, 0.1),
+                    inset 0 15px -15px rgba(0, 0, 0, 0.1),
+                    0 -15px -15px rgba(255, 255, 255, 0.1),
+                    inset 0 -15px -15px rgba(255, 255, 255, 0.1);
+    -color-half: rgb(20, 83, 85);
+    --color-number: #000ed1;
+    --color-clock: rgb(247, 247, 247);
+    --color-15m: #18b13e;
+    --color-12h: rgb(173, 0, 0);
+}
+
+body {
+    background: var(--bg);
+    /* linear-gradient(145deg, #262626, #000); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+}
+
+.clock {
+    width: 350px;
+    height: 350px;
+    background-color: var(--color-clock);
+    /* border: 2px double rgba(255, 166, 0, 0.8); */
+    position: relative;
+    border-radius: 50%;
+    box-shadow: var(--clock-shadow);
+}
+
+.clock .number {
+    --rotation: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: var(--color-number);
+    background-size: 100%;
+    background-clip: text;
+    /* filter: drop-shadow(2px, 2px, #167f86);   */
+    transform: rotate(var(--rotation));
+
+}
+
+.clock .number1 { --rotation: 30deg; }
+.clock .number2 { --rotation: 60deg; }
+.clock .number3 { --rotation: 90deg; color: var(--color-15m); }
+.clock .number4 { --rotation: 120deg; }
+.clock .number5 { --rotation: 150deg; }
+.clock .number6 { --rotation: 180deg; color: var(--color-15m); }
+.clock .number7 { --rotation: 210deg; }
+.clock .number8 { --rotation: 240deg; }
+.clock .number9 { --rotation: 270deg; color: var(--color-15m); }
+.clock .number10 { --rotation: 300deg; }
+.clock .number11 { --rotation: 330deg; }
+.clock .number12 { --rotation: 360deg; color: var(--color-12h); }
+
+.clock .half1 { --rotation: 45deg; font-size: 0.2rem; color: var(--color-half); }
+.clock .half2 { --rotation: 75deg; font-size: 0.2rem; color: var(--color-half); }
+.clock .half3 { --rotation: 105deg; font-size: 0.2rem; color: var(--color-half); }
+.clock .half4 { --rotation: 135deg; font-size: 0.2rem; color: var(--color-half); }
+.clock .half5 { --rotation: 165deg; font-size: 0.2rem; color: var(--color-half); }
+.clock .half6 { --rotation: 195deg; font-size: 0.2rem; color: var(--color-half); }
+.clock .half7 { --rotation: 225deg; font-size: 0.2rem; color: var(--color-half); }
+.clock .half8 { --rotation: 255deg; font-size: 0.2rem; color: var(--color-half); }
+.clock .half9 { --rotation: 285deg; font-size: 0.2rem; color: var(--color-half); }
+.clock .half10 { --rotation: 315deg; font-size: 0.2rem; color: var(--color-half); }
+.clock .half11 { --rotation: 345deg; font-size: 0.2rem; color: var(--color-half); }
+.clock .half12 { --rotation: 15deg; font-size: 0.2rem; color: var(--color-half); }
+
+
+
+.clock .hand {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+.clock::after {
+    content: '';
+    position: absolute;
+    background-color: var(--color-center-button);
+    z-index: 11;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+
+.clock .hand.second {
+    width: 3px;
+    height: 45%;
+    background-color: var(--color-sec);
+}
+
+.clock .hand.minute {
+    width: 7px;
+    height: 37%;
+    background-color: var(--color-hand);
+}
+
+.clock .hand.hour {
+    width: 10px;
+    height: 30%;
+    background-color: var(--color-hand);
+}
+
+footer {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    font-family: Catamaran, sans-serif;
+    background-image: linear-gradient(180deg, #fff, #fdb87f);
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    filter: drop-shadow(2px, 2px, #a35400);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin: 20px;
+}
+
+.foot-flex {
+    flex: 2 1 200px;
+}
+
+
+
+
+/* Dark-Mode toggle */
+input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 52px;
+    height: 27px;
+    background: var(--color-toggle);
+    float: right;
+    border-radius: 100px;
+    position: relative;
+}
+
+label::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: var(--color-toggle);
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked + label {
+    background: var(--color-tg-back);
+}
+
+input:checked + label::after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+label:active::after {
+    width: 45px;
+}
+
+html.transition,
+html.transition *,
+html.transition *::before,
+html.transition *::after {
+    transition: all 750ms !important;
+    transition-delay: 0 !important;
+}
+
+
