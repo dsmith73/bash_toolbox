@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.box1 {
+    background: rgba(226, 26, 26, .5);
+    grid-area: box1;
+}
+
+.box2 {
+    background: rgba(12, 105, 54, 0.5);
+    grid-area: box2;
+}
+
+.box3 {
+    background: rgba(18, 89, 221, 0.5);
+    grid-area: box3;
+}
+
+/* make a grid that looks like this:  
+-----------------------------------
+|              |                   |
+|--------------|-------------------|
+|                                  |
+------------------------------------
+*/
+
+main {
+    display: grid;
+    height: 100%;
+    /* grid-template-columns: 20% auto; */
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 50% auto;
+    grid-template-areas: 
+    "box1 box2" /* col */
+    "box3 box3" /* row */;
+}
+
+p {
+    padding: 10px;
+}
+
+/* make a grid that looks like this:  
+-----------------------------------
+|              |                   |
+|--------------|                   |
+|              |                   |
+------------------------------------
+*/
+
+.box2 {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10% 45% 45%;
+    grid-template-areas:
+    "box2 box2" 
+    "box4 box6"
+    "box5 box6";
+}
+
+.box4 {
+    grid-area: box4;
+    border: 1px solid black;
+    background: rgba(255, 251, 0, 0.5);
+}
+
+.box5 {
+    grid-area: box5;
+    border: 1px solid black;
+    background: rgba(1, 204, 255, 0.5);
+}
+
+.box6 {
+    grid-area: box6;
+    border: 1px solid black;
+    background: rgba(110, 0, 138, 0.5);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 10px;
+}
+
+.gallery img {
+    width: 100%;
+}

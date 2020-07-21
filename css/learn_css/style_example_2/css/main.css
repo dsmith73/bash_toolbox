@@ -1,0 +1,52 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: ivory;
+    color: dimgray;
+    padding: 20px;
+    height: auto;
+    width: auto;
+    border: 20px solid rgba(250, 235, 215, 1);
+    margin: 10px;
+
+}
+
+p {
+    margin: 10px;
+}
+
+h4 {
+    color: rgb(0, 119, 119);
+}
+
+hr {
+    align-self: center;
+    border: 2px dashed rgba(17, 112, 150, .80);
+    width: 50%;
+}
+
+.ul {
+    list-style-type: disc;
+    color: rgba(75, 75, 75, 0.8);
+}
+
+.ul ul {
+    list-style-type: square;
+}
+
+code {
+    font-family: "Lucida Console", Courier, monospace;
+    font-size: small;
+    color: chartreuse;
+    background-color: #474747;
+}
+
+.antique--container {
+    background-color: antiquewhite;
+    border: 20px double #000000AA;
+    padding: 10px;
+    height: fit-content;
+    width: auto;
+    color: #00000099;
+    margin: 20px;
+    
+}

@@ -1,0 +1,46 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+body {
+    background: #333;
+}
+
+body::before{
+    content: "Flexbox Container";
+    color: yellow;
+    font-size: large;
+}
+
+.flexbox-container {
+    background: yellow;
+}
+
+.flexbox-item-1::before {
+    content: "Flexbox Item";
+    margin: 10px;
+}
+
+.flexbox-item-1::after {
+    content: "1";
+}
+
+.flexbox-item-2::before {
+    content: "Flexbox Item";
+    margin: 10px;
+}
+
+.flexbox-item-2::after {
+    content: "2";
+}
+
+.flexbox-item-3::before {
+    content: "Flexbox Item";
+    margin: 10px;
+}
+
+.flexbox-item-3::after {
+    content: "3";
+}
+

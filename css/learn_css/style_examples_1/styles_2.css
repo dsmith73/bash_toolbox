@@ -1,0 +1,35 @@
+.blue {
+    color: #0000FF;
+    /* partial-transparency in hex (ffffffXX) */
+    color: #0000FF99;
+}
+
+h1 { /* rgb is for color (255, 255, 255) */
+    color: rgb(0, 255, 0);
+    /* hsl (hue saturation lightness) for color (0-360, saturation 100%, lightness 100%) */
+    color: hsl(0, 100%, 50%);
+    /* hsl with transparency (0-360, saturation 100%, lightness 100%, transparency 0-1) */
+    color: hsla(0, 100%, 50%, 0);
+}
+h2 { /* rgba is for partial-transparency (255, 255, 255, VALUE) */
+    color: rgba(126, 126, 220, .5);
+}
+/* inline styles override stylesheets */
+body {
+    color: red;
+}
+
+.box {
+    /*
+    px - pixels
+    % 
+    em (based on font size of parent... e.g. 16px means 1em is 16px)
+    rem (scales off font size of root doc)
+    */
+    height: 100px; /* height & width of the content */
+    width: 100px;
+    padding: 20px; /* padding goes between the content and the boarder */
+    margin: 50px; /* margin goes around the content and declares amount of space between elements */
+    border: 10px solid black; /* boarder of the content */
+    background-color: red;
+}
