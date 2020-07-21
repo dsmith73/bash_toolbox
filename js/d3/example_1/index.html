@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./index.css">
+        <title>Learning D3.js</title>
+    </head>
+    <body>
+        <main>
+        <h1>First Heading</h1>
+        <br>
+        <lesson_1></lesson_1>
+        <p id="first"></p>
+
+        <br>
+        <hr>
+        <div align="center">
+            <h2>Lesson 3 - Bar Chart</h2>
+        </div>
+        <lesson_3 class="flexbox">
+
+            <div class="container">
+                <svg class="bar-chart"></svg>
+            </div>
+        </lesson_3>
+
+        <br>
+        <hr>
+        <div align="center">
+            <h2>Lesson 6 - Scaled Bar Chart</h2>
+        </div>
+        <lesson_6 class="flexbox">
+            <div class="container">
+                <svg id="bChartScales" class="bar-chart"></svg>
+            </div>
+        </lesson_6>
+
+        <br>
+        <hr>
+        <div align="center">
+            <h2 id="L7">Lesson 7 - Axis in Bar Chart</h2>
+        </div>
+        <lesson_7 class="flexbox">
+            <div class="container">
+                <svg id="bChartAxis" class="bar-chart"></svg>
+            </div>
+        </lesson_7>
+
+        <br>
+        <hr>
+
+        <div align="center">
+            <h2 id="L8">Lesson 8 - creating SVG elements with D3</h2>
+        </div>
+        <lesson_8 class="flexbox">
+            <div class="container">
+                <svg id="bChartSVGEle" class="bar-chart"></svg>
+            </div>
+        </lesson_8>
+
+        <br>
+        <hr>
+
+        <div align="center">
+            <h2 id="L9">Lesson 9 - Line Chart</h2>
+            <p>Bitcoin value over prev 16 months.</p>
+        </div>
+        <lesson_9 class="flexbox">
+            <div class="container">
+                <svg id="d3LineChart" class="line-chart"></svg>
+            </div>
+        </lesson_9>
+
+        </main>
+        <footer class="flexbox-item-footer"></footer>
+
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
