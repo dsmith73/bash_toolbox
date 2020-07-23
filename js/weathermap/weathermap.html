@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@700&family=Emblema+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="weathermap.css">
+    <script src="weathermap.js" defer></script>
+    <title>Weather Map</title>
+</head>
+<body>
+    <section>
+        <h2 class="location-name"></h2>
+        <div class="location-timezone">
+            <h1>Timezone</h1>
+        </div>
+        <div class="temperature">
+            <div class="degree-section">
+            <h2 class="temperature-degree"></h2>
+            <span>°F</span>
+            </div>
+            <div class="weather-info">
+                <div class="temperature-description"></div>
+                <img class="weather-icon" id="weatherIconIMG">
+                
+                <div class="percent-clouds"></div>
+                <div class="visibility"></div>
+            </div>
+
+            <div class="wind">
+                <p>Wind: </p>
+                <div class="wind-degree"></div>
+                <p> @ </p>
+                <h2 class="wind-speed"></h2>
+                <span>mph</span> 
+            </div>
+        </div>
+        <footer>
+            <!-- Dark-Mode Toggle -->
+            <div class="toggle-container">
+                <input type="checkbox" id="switch" name="theme" /><label for="switch">- @dsmith73 -</label>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>
