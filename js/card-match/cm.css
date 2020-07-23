@@ -1,0 +1,327 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Creepy";
+    src: url("assets/Fonts/Creepy.woff") format("woff"),
+         url("assets/Fonts/Creepy.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Lunacy";
+    src: url("assets/Fonts/Lunacy.woff") format("woff"),
+         url("assets/Fonts/Lunacy.woff2") format("woff2");
+}
+
+html {
+    height: 100%;
+    /* color variables for light/dark-mode */
+    --color-text: rgb(249, 253, 18);
+    --color-toggle: rgba(177, 177, 177, 0.644);
+    --color-tg-back: rgba(44, 4, 4, 0.671);
+    --bg: radial-gradient(#070401, #553102);
+    --game-info: #d17d00;
+    --card-back: #000000;
+    --card-border: #b10000;
+    --cf-card-back: #b46262;
+    --cf-card-border: rgb(37, 37, 37);
+    --overlay-bk-1: rgba(0, 0, 0, 0.8);
+    --overlay-bk-2: rgba(0, 0, 0, 0.6);
+}
+
+html[data-theme='light'] {
+    --color-text: rgb(255, 255, 255);
+    --color-toggle: rgba(167, 167, 167, 0.623);
+    --color-tg-back: rgba(66, 8, 0, 0.644);
+    --color-title: #FF6D00;
+    --bg: radial-gradient(#9D5900, #3D2200);
+    --color-text: rgb(0, 0, 0);
+    --game-info: #f8c51f;
+    --card-back: #000000;
+    --card-border: #FF6D00;
+    --cf-card-back: #FFBB89;
+    --cf-card-border: #333;
+    --overlay-bk-1: rgba(0, 0, 0, 0.8);
+    --overlay-bk-2: rgba(0, 0, 0, 0.6);
+}
+
+section {
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+    cursor: url(assets/Cursors/Ghost.cur), auto;
+    font-family: Lunacy;
+    color: var(--color-text);
+    background: var(--bg);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page-title {
+    color: var(--color-title);
+    font-family: Creepy, serif;
+    font-weight: normal;
+    text-align: center;
+    font-size: 5em;
+}
+
+.game-info-container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-info {
+    color: var(--game-info);
+    font-size: 4em;
+}
+
+.game-container {
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    justify-content: center;
+    perspective: 400px;
+}
+
+.card {
+    position: relative;
+    cursor: url("assets/Cursors/GhostHover.cur"), auto;
+    height: 175px;
+    width: 125px;
+}
+
+.card-face {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
+    transition: transform 500ms ease-in-out;
+    backface-visibility: hidden;
+}
+
+.card.visible .card-back {
+    transform: rotateY(-180deg); 
+}
+
+.card.visible .card-front {
+    transform: rotateY(0); 
+}
+
+.card.matched .card-front .card-value {
+    animation: dance 1s linear infinite 500ms;
+}
+
+.card-back {
+    background-color: var(--card-back);
+    border-color: var(--card-border);
+    transform: rotateY(0); 
+}
+
+.cob-web {
+    position: absolute;
+    transition: width 100ms ease-in-out, height 100ms ease-in-out;
+    width: 47px;
+    height: 47px;
+}
+
+.card-face:hover .cob-web {
+    width: 52px;
+    height: 52px;
+}
+
+.cob-web-top-left {
+    transform: rotate(270deg);
+    top: 0;
+    left: 0;
+}
+
+.cob-web-top-right {
+    top: 0;
+    right: 0;
+}
+
+.cob-web-bottom-left {
+    transform: rotate(180deg);
+    bottom: 0;
+    left: 0;
+}
+
+.cob-web-bottom-right {
+    transform: rotate(90deg);
+    bottom: 0;
+    right: 0;
+}
+
+.spider {
+    align-self: flex-start;
+    transition: transform 100ms ease-in-out;
+    transform: translateY(-10px);
+}
+
+.card-back:hover .spider {
+    transform: translateY(0);
+}
+
+.card-value {
+    position: relative;
+    transition: transform 100ms ease-in-out;
+    transform: scale(.9);
+}
+
+.card-front:hover .card-value {
+    transform: scale(1);
+}
+
+.card-front {
+    background-color: var(--cf-card-back);
+    border-color: var(--cf-card-border);
+    transform: rotateY(180deg);
+}
+
+.overlay-text {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--card-border);
+    font-family: Creepy, serif;
+    transition: background-color 500ms, font-size 500ms;
+}
+
+.overlay-text-small {
+    font-size: .3em;
+}
+
+.overlay-text.visible {
+    display: flex;
+    animation: overlay-grow 500ms forwards;
+}
+
+@keyframes dance {
+    0%, 100% {
+        transform: rotate(0)
+    }
+    25% {
+        transform: rotate(-30deg)
+    }
+    75% {
+        transform: rotate(30deg)
+    }
+}
+
+@keyframes overlay-grow {
+    from {
+        background-color: var(--overlay-bk-1);
+        font-size: 0;
+    }
+    to {
+        background-color: var(--overlay-bk-2);
+        font-size: 10em;
+    }
+}
+
+@media (max-width: 600px) {
+    .game-container {
+        grid-template-columns: repeat(2, auto)
+    }
+
+    .game-info-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+footer {
+    display: flex;
+    height: auto;
+    align-items: center;
+    padding-top: 10px;
+}
+
+footer h4 {
+    font-size: 1.5em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.foot-flex {
+    flex: 2 1 200px;
+}
+
+.lighting,
+.sound {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-around;
+    
+}
+
+/* Dark-Mode toggle */
+input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 52px;
+    height: 27px;
+    background: var(--color-toggle);
+    float: right;
+    border-radius: 100px;
+    position: relative;
+}
+
+label::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: var(--color-toggle);
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked + label {
+    background: var(--color-tg-back);
+}
+
+input:checked + label::after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+label:active::after {
+    width: 45px;
+}
+
+html.transition,
+html.transition *,
+html.transition *::before,
+html.transition *::after {
+    transition: all 750ms !important;
+    transition-delay: 0 !important;
+}
