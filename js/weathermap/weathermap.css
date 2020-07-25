@@ -46,7 +46,6 @@ section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: -1;   /* pull img to front on iphone */
 }
 
 .location-name {
@@ -96,6 +95,11 @@ section {
     size: 10vh;
     width: auto;
     z-index: 100;   /* pull img to front on iphone */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
 }
 
 .wind {
