@@ -71,7 +71,7 @@ window.addEventListener('load', () => {
                 locationName.textContent = name;
                 //visibilityDistance.textContent = visibility;
                 //pctCloudiness.textContent = data.clouds;
-                weatherIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
+                weatherIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png");
                 // formulate Celcius  
                 let celcius = (temp - 32) * (5 / 9);
                 // change temp from fahrenheit to celcius on click  
