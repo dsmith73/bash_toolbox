@@ -94,6 +94,7 @@ section {
 .weather-icon {
     size: 10vh;
     width: auto;
+    z-index: 100;   /* pull img to front on iphone */
 }
 
 .wind {
