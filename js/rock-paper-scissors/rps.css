@@ -8,7 +8,7 @@ html {
     height: 100%;
     /* box-sizing: border-box; */
     font-family: 'Emplema One', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.5vmax;
     /* color variables for light/dark-mode */
     --color-text: rgb(255, 255, 255);
     --color-toggle: rgba(206, 206, 206, 0.473);
@@ -46,13 +46,13 @@ section {
 }
 
 .score h2 {
-    font-size: 30px;
+    font-size: 3vmax;
 }
 
 .score p {
     text-align: center;
-    padding: 10px;
-    font-size: 25px;
+    padding: 1vw;
+    font-size: 2.5vmax;
 }
 
 .player-score p,
@@ -71,17 +71,17 @@ section {
 }
 
 .intro h1 {
-    font-size: 50px;
+    font-size: 5vmax;
 }
 
 .intro button,
 .match button {
-    width: 100px;
-    height: 40px;
+    width: 10vmax;
+    height: 5vh;
     background: none;
     border: 1px;
     margin: 3px;
-    font-size: 1rem;
+    font-size: 2vmax;
     color: var(--color-text);
     background: var(--bg-intro);
     border-radius: 3px;
@@ -115,8 +115,8 @@ section {
 .winner {
     color: var(--color-text);
     text-align: center;
-    font-size: 40px;
-    padding-bottom: 50px;
+    font-size: 4vmax;
+    padding-bottom: 5vh;
 }
 
 .hands,
@@ -124,7 +124,7 @@ section {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 2vh;
 }
 
 .player-hand {
@@ -172,9 +172,6 @@ footer {
     align-items: center;
 }
 
-.foot-flex {
-    flex: 2 1 200px;
-}
 
 
 /* Dark-Mode toggle */
