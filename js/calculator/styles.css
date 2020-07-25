@@ -40,12 +40,7 @@ body {
     text-align: center;
     margin: 1px;
     border-radius: 10px;
-    z-index: 100;   /* pull img to front on iphone */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
+    overflow: hidden;
 }
 
 .calculator-grid > button:hover {
