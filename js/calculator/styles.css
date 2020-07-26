@@ -46,26 +46,6 @@ section {
 }
 
 
-@supports (-webkit-overflow-scrolling: touch) {
-    /* CSS specific to iOS devices only */ 
-    .calc-buttons > button {
-        height: 90px;
-        width: 85px;
-        font-family: 'Emplema One', sans-serif;
-        cursor: pointer;
-        font-weight: normal;
-        font-size: 2.5vmax;
-        border: 2px solid rgba(73, 120, 200, .5);
-        background: none;
-        color: rgb(85, 212, 174);
-        filter: drop-shadow(2px, 2px, #007da3);
-        text-align: center;
-        justify-content: center;
-        margin: 1px;
-        border-radius: 10px;
-        z-index: 10;
-    }
-}
 
 .calc-buttons > button {
     height: 90px;
@@ -75,7 +55,7 @@ section {
     font-weight: normal;
     font-size: 2.5vmax;
     border: 2px solid rgba(73, 120, 200, .5);
-    background: none;
+    /* background: none; */
     color: rgb(85, 212, 174);
     background: linear-gradient(180deg, rgb(109, 240, 105), #6126be);
     background-clip: text;
@@ -90,6 +70,24 @@ section {
     border-radius: 10px;
 }
 
+@supports (-webkit-overflow-scrolling: touch) {
+    /* CSS specific to iOS devices only */ 
+    .calc-buttons > button {
+        height: 90px;
+        width: 85px;
+        font-family: 'Emplema One', sans-serif;
+        cursor: pointer;
+        font-weight: normal;
+        font-size: 2.5vmax;
+        border: 2px solid rgba(73, 120, 200, .5);
+        color: rgb(85, 212, 174);
+        filter: drop-shadow(2px, 2px, #007da3);
+        text-align: center;
+        justify-content: center;
+        margin: 1px;
+        border-radius: 10px;
+    }
+}
 
 @supports (-webkit-overflow-scrolling: touch) {
     /* CSS specific to iOS devices only */ 
@@ -100,7 +98,6 @@ section {
         transition: ease-in-out;
         transition-delay: 50ms;
         transition-duration: 50ms;
-        z-index: 20;
     }
 }
 
@@ -118,6 +115,8 @@ section {
     transition-delay: 50ms;
     transition-duration: 50ms;
 }
+
+
 
 
 .calc-buttons .span-two {
