@@ -57,12 +57,14 @@ section {
     border: 2px solid rgba(73, 120, 200, .5);
     /* background: none; */
     color: rgb(85, 212, 174);
-    background: linear-gradient(180deg, rgb(109, 240, 105), #6126be);
+    /* background: linear-gradient(180deg, rgb(109, 240, 105), #6126be);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
+    -moz-text-fill-color: transparent; */
+    background: transparent;
+    background-clip: unset;
     filter: drop-shadow(2px, 2px, #007da3);
     text-align: center;
     justify-content: center;
