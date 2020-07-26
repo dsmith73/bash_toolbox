@@ -54,10 +54,10 @@ section {
     font-size: 2.5vmax;
     color: rgb(28, 145, 180);
     border: 2px solid rgba(73, 120, 200, .5);
-    background-image: linear-gradient(180deg, rgb(109, 240, 105), #6126be);
+    background: linear-gradient(180deg, rgb(109, 240, 105), #6126be);
     background-size: cover;
     background-clip: text;
-    -webkit-linear-gradient: (180deg, rgb(109, 240, 105), #6126be);
+    background: -webkit-linear-gradient(180deg, rgb(109, 240, 105), #6126be);
     -webkit-background-clip: text;
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
     -moz-background-clip: text;
