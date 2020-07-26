@@ -73,6 +73,7 @@ section {
 @supports (-webkit-overflow-scrolling: touch) {
     /* CSS specific to iOS devices only */ 
     .calc-buttons > button {
+        background: none;
         height: 90px;
         width: 85px;
         font-family: 'Emplema One', sans-serif;
