@@ -61,7 +61,7 @@ section {
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
-    color: transparent !important;
+    color: rgb(109, 240, 105);
     filter: drop-shadow(2px, 2px, #007da3);
     text-align: center;
     margin: 1px;
