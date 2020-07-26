@@ -45,6 +45,7 @@ section {
     justify-content: center;
 }
 
+
 .calc-buttons > button {
     height: 90px;
     width: 85px;
@@ -55,34 +56,66 @@ section {
     border: 2px solid rgba(73, 120, 200, .5);
     background: none;
     color: rgb(85, 212, 174);
-    /* background: linear-gradient(180deg, rgb(109, 240, 105), #6126be);
+    background: linear-gradient(180deg, rgb(109, 240, 105), #6126be);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
-    -moz-text-fill-color: transparent; */
+    -moz-text-fill-color: transparent;
     filter: drop-shadow(2px, 2px, #007da3);
     text-align: center;
     justify-content: center;
     margin: 1px;
     border-radius: 10px;
-    z-index: 10;
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+    /* CSS specific to iOS devices only */ 
+    .calc-buttons > button {
+        height: 90px;
+        width: 85px;
+        font-family: 'Emplema One', sans-serif;
+        cursor: pointer;
+        font-weight: normal;
+        font-size: 2.5vmax;
+        border: 2px solid rgba(73, 120, 200, .5);
+        background: none;
+        color: rgb(85, 212, 174);
+        filter: drop-shadow(2px, 2px, #007da3);
+        text-align: center;
+        justify-content: center;
+        margin: 1px;
+        border-radius: 10px;
+        z-index: 10;
+    }
 }
 
 .calc-buttons > button:hover {
     color: rgb(251, 255, 14);
-    /* background-image: linear-gradient(180deg, rgb(255, 255, 255), #fbff00);
+    background-image: linear-gradient(180deg, rgb(255, 255, 255), #fbff00);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
-    -moz-text-fill-color: transparent; */
+    -moz-text-fill-color: transparent;
     filter: drop-shadow(2px, 2px, #3ce707);
     border: 4px double rgb(0, 217, 255);
     transition: ease-in-out;
     transition-delay: 50ms;
     transition-duration: 50ms;
-    z-index: 20;
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+    /* CSS specific to iOS devices only */ 
+    .calc-buttons > button:hover {
+        color: rgb(251, 255, 14);
+        filter: drop-shadow(2px, 2px, #3ce707);
+        border: 4px double rgb(0, 217, 255);
+        transition: ease-in-out;
+        transition-delay: 50ms;
+        transition-duration: 50ms;
+        z-index: 20;
+    }
 }
 
 
