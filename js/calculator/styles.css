@@ -45,8 +45,14 @@ section {
     justify-content: center;
 }
 
-.calc-buttons > button {
+@support (background: linear-gradient(180deg, rgb(109, 240, 105), #6126be)) {
+    .calc-buttons > button {
+        background: none;
+        color: rgb(109, 240, 105);
+    }
+}
 
+.calc-buttons > button {
     height: 90px;
     width: 85px;
     font-family: 'Emplema One', sans-serif;
@@ -67,6 +73,13 @@ section {
     text-align: center;
     margin: 1px;
     border-radius: 10px;
+}
+
+@support (background-image: linear-gradient(180deg, rgb(255, 255, 255), #fbff00)) {
+    .calc-buttons > button {
+        background: none;
+        color: rgb(251, 255, 14);
+    }
 }
 
 .calc-buttons > button:hover {
