@@ -96,7 +96,6 @@ section {
     max-width: 30vw;
     background: linear-gradient(180deg, rgba(73, 73, 73, .2), rgba(0, 0, 0, .75));
     color: rgba(20, 128, 190, 0.73);
-    font-size: normal;
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
