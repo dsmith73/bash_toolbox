@@ -74,6 +74,7 @@ section {
     /* CSS specific to iOS devices only */ 
     .calc-buttons > button {
         background: none;
+        -webkit-background-clip: unset;
         height: 90px;
         width: 85px;
         font-family: 'Emplema One', sans-serif;
