@@ -1,0 +1,56 @@
+
+
+.tile {
+    display: inline-flex;
+    flex-wrap: wrap;
+    /* I had 2px margins showing up on my tile rows  
+        needed to do -2px margin on top and bottom 
+        to remove them and lign up the map */
+    margin-top: -2px;
+    margin-bottom: -2px;
+    align-content: center;
+    background-color: #578036;
+}
+
+/* .row {
+    display: inline-flex;
+    align-content: center;
+    background-color: rgb(38, 109, 59);
+} */
+
+.grass {
+    background-color: #578036;
+    /* background-image: url('/tiles/grass.png'); */
+}
+.rock {
+    background-image: url('/tiles/rock.png');
+}
+.tree {
+    background-image: url('/tiles/tree.png');
+}
+.player {
+    background-image: url('/tiles/player.png');
+}
+
+
+
+.goblin {
+    background-image: url('/mobs/goblin.png');
+}
+.wolf {
+    background-image: url('/mobs/wolf.png');
+}
+.spider {
+    background-image: url('/mobs/spider.png');
+}
+.redDragon {
+    background-image: url('/mobs/red_dragon.png');
+}
+
+
+
+.chest {
+    background-image: url('/tiles/chest.png');
+}
+
+
