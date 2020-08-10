@@ -1,0 +1,43 @@
+@import url('./base.css');
+@import url('./anime.css');
+
+.main-section {
+    border-bottom: 2px solid var(--proj-border);
+    padding: 5px 0px 5px 10px;
+    width: 88vw;
+}
+
+header {
+    padding-top: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--about-h3);
+}
+
+p {
+    padding: 10px;
+    color: var(--about-p);
+}
+
+li {
+    color: var(--about-p);
+    margin-left: 20px;
+}
+
+code {
+    color: var(--proj-code);
+}
+
+.slider {
+    height: 200vh;
+}
+
+a {
+    color: var(--about-h3);
+}
+
+.innerSection {
+    padding-top: 20px;
+    height: 100%;
+}

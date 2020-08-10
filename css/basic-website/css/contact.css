@@ -1,0 +1,31 @@
+@import url('./base.css');
+@import url('./anime.css');
+
+
+.contactMe {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-entry {
+    font-family: 'Roboto Mono', sans-serif;
+    border-radius: 10px;
+    background: var(--form-back);
+    color: var(--form-color);
+    padding: 5px 0px 10px 0px;
+    /* margin: 5px; */
+}
+
+form input::placeholder, textarea::placeholder, button::placeholder {
+    font-family: 'Roboto Mono', sans-serif;
+}
+
+#survey-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#feedback {
+    height: 250px;
+}

@@ -1,0 +1,59 @@
+
+.hamburger {
+    position: absolute;
+    cursor: pointer;
+    right: 1%;
+    top: 2%;
+    transform: translate(-5%, -50%);
+    z-index: 5;
+}
+
+.line {
+    height: 3px;
+    background: var(--nav-line-base);
+    margin: 5px;
+    border-radius: 2px;
+}
+
+.l1 { width: 37px; }
+.l2 { width: 29px; background: var(--nav-line-alt); }
+.l3 { width: 15px; }
+
+.hamburger > .line {
+    transition: all 0.4s ease
+}
+
+/* toggler animation */
+.hamburger.open > .l1 {
+    width: 30px;
+    transform: rotate(-45deg);
+    background: var(--proj-code);
+}
+
+.hamburger.open > .l2 {
+    /* transform: translateX(0px, -20px); */
+    transform: scale(0);
+}
+
+/* turn lines into X */
+.hamburger.open > .l3 {
+    margin-top: -15px;
+    width: 30px;
+    background: var(--about-h3);
+    transform: rotate(45deg);
+}
+
+/* rotate on hover, when checked */
+.hamburger.open:hover > .l1 {
+    transform: rotate(135deg);
+} 
+.hamburger.open:hover > .l3 {
+    transform: rotate(225deg);
+}
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./css/contact.css">
+    <script src="./js/anime.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+</head>
+<body>
+    
+    <section class="main">
+        <header>
+            <nav>
+                <h3 id="logo">Contact Me</h3>
+                <div class="hamburger">
+                    <div class="line l1"></div>
+                    <div class="line l2"></div>
+                    <div class="line l3"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a class="links" href="./animated.html">Home</a></li>
+                    <li><a class="links" href="./about.html">About</a></li>
+                    <li><a class="links" href="./contact.html">Contact</a></li>
+                    <li><a class="links" href="./projects.html">Projects</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Start Main Content -->
+        <section class="innerSection">
+            <div class="contactMe">
+                <form action="POST" id="survey-form">
+                    <input type="text" id="name" class="form-entry" placeholder="Name" required>
+                    <input type="email" id="email" class="form-entry" placeholder="your.email@address.here" required pattern="^[\d\w\-\/.]+@[\d\w\-\/.]+">
+                    <br>
+                    <textarea name="feedback" class="form-entry" id="feedback" placeholder="I'd love to hear from you..."></textarea>
+                    <button class="form-entry" type="submit" value="Submit" id="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+        <!-- End Main Content -->
+
+        <div class="slider"></div>
+
+        <footer>
+            <!-- Dark-Mode Toggle -->
+            <div class="toggle-container">
+                <input type="checkbox" id="switch" name="theme" /><label for="switch">- @dsmith73 -</label>
+            </div>
+        </footer>
+    </section>
+
+        <!-- https://cdnjs.com/libraries/gsap/latest -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" 
+                integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" 
+                crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js" 
+                integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw==" 
+                crossorigin="anonymous">
+        </script>
+</body>
+</html>
