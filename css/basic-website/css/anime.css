@@ -1,14 +1,12 @@
 
-
-
 /* Dark-Mode toggle */
-input[type=checkbox]{
+.darkModeInput[type=checkbox]{
     height: 0;
     width: 0;
     visibility: hidden;
 }
 
-label {
+.darkModeLabel {
     cursor: pointer;
     text-indent: -9999px;
     width: 5.3vmax;
@@ -19,29 +17,29 @@ label {
     position: relative;
 }
 
-label::after {
+.darkModeLabel::after {
     content: '';
     position: absolute;
-    top: 3px;
+    top: 2px;
     left: 3px;
     width: 1vmax;
-    height: 1.5vmax;
+    height: 1.4vmax;
     background: var(--color-toggle);
-    border-radius: 10px;
+    border-radius: 90px;
     transition: 0.3s;
 }
 
-input:checked + label {
+.darkModeInput:checked + .darkModeLabel {
     background: var(--color-tg-back);
 }
 
-input:checked + label::after {
+.darkModeInput:checked + .darkModeLabel::after {
     left: calc(100% - 5px);
     transform: translateX(-100%);
 }
 
-label:active::after {
-    width: 4vw;
+.darkModeLabel:active::after {
+    width: 4.5vw;
 }
 
 html.transition,

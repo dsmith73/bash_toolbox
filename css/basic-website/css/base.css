@@ -22,7 +22,10 @@
     --proj-code: rgb(251, 253, 103);
     --proj-border: rgb(139, 0, 0);
     --form-back: rgb(42, 42, 42);
-    --form-color: rgb(119, 250, 32);
+    --form-color: #96f88d;
+    --form-bg: rgba(0,0,0,0);
+    --form-base-txt: rgb(184, 184, 184);
+    --form-ani-text: #5fa8d3;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -38,8 +41,7 @@
     --nav-line-base: rgb(255, 0, 0);
     --nav-line-alt: rgb(251, 255, 0);
     --proj-code: rgb(158, 253, 103);
-    --form-back: rgb(187, 187, 187);
-    --form-color: #000;
+    --form-ani-text: #3a0069;
 }
 
 .main {

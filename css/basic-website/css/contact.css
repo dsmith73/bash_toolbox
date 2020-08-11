@@ -3,10 +3,81 @@
 
 
 .contactMe {
-    font-family: 'Roboto', sans-serif;
+    height: 60vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    font-family: 'Roboto', sans-serif;
 }
+
+.nameForm,
+.buttonForm,
+.emailForm {
+    width: 50%;
+    position: relative;
+    height: 50px;
+    margin-top: 70px;
+    overflow: hidden;
+}
+
+.nameForm input,
+.emailForm input {
+    width: 100%;
+    height: 100%;
+    color: var(--form-color);
+    padding-top: 20px;
+    border: none;
+    background: var(--form-bg);
+    outline: none;
+}
+
+.nameForm label,
+.buttonForm button,
+.emailForm label {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #000;
+}
+
+.nameForm label,
+.emailForm label,
+.textForm label {
+    pointer-events: none;
+    color: var(--form-base-txt);
+}
+
+
+.textForm label {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #000;
+}
+
+.textForm {
+    width: 50%;
+    position: relative;
+    height: 150px;
+    margin-top: 70px;
+}
+
+.textForm textarea {
+    width: 100%;
+    height: 100%;
+    color: var(--form-color);
+    padding-top: 20px;
+    border: none;
+    background: var(--form-bg);
+    outline: none;
+}
+
+
 
 .form-entry {
     font-family: 'Roboto Mono', sans-serif;
@@ -14,18 +85,60 @@
     background: var(--form-back);
     color: var(--form-color);
     padding: 5px 0px 10px 0px;
-    /* margin: 5px; */
 }
 
-form input::placeholder, textarea::placeholder, button::placeholder {
+.form-entry::placeholder {
     font-family: 'Roboto Mono', sans-serif;
 }
 
-#survey-form {
-    display: flex;
-    flex-direction: column;
+
+
+
+.nameForm label::after,
+.emailForm label::after,
+.textForm label::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid var(--form-ani-text);
+    left: 0px;
+    bottom: -1px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
 }
 
-#feedback {
-    height: 250px;
+
+.content-name {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
 }
+
+.nameForm input:focus + .label-name .content-name, 
+.nameForm input:valid + .label-name .content-name, 
+.emailForm input:focus + .label-name .content-name, 
+.emailForm input:valid + .label-name .content-name {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: var(--form-ani-text);
+}
+
+.textForm textarea:focus + .label-name .content-name,
+.textForm textarea:valid + .label-name .content-name {
+    transform: translateY(150%);
+    font-size: 14px;
+    color: var(--form-ani-text);
+}
+
+.nameForm input:focus + .label-name::after, 
+.nameForm input:valid + .label-name::after, 
+.emailForm input:focus + .label-name::after, 
+.emailForm input:valid + .label-name::after, 
+.textForm textarea:focus + .label-name::after,
+.textForm textarea:valid + .label-name::after {
+    transform: translateX(0%);
+}
+
+
