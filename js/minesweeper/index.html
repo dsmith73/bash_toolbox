@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="minesweep.css">
+    <script src="minesweep.js" defer></script>
+    <title>Mine Sweeper</title>
+</head>
+<body>
+    <section class="main">
+        <header>Mine Sweeper</header>
+        <div class="score">
+            <div class="total-flags">Flags Used: 
+                <span class="flags-used">0</span>
+            </div>
+            <div class="time">Time: 
+                <span class="timer">100</span>
+            </div>
+        </div>
+
+        <div class="grid"></div>
+
+        <form class="controls" name="controls">
+            <!-- <div class="level">Difficulty: -->
+                <br>
+                <input type="radio" id="difficulty" name="level-val" value="easy">
+                <label for="difficulty">Easy</label>
+                <input type="radio" id="difficulty" name="level-val" value="normal">
+                <label for="difficulty">Normal</label>
+                <input type="radio" id="difficulty" name="level-val" value="hard">
+                <label for="difficulty">Hard</label>
+                <input type="radio" id="difficulty" name="level-val" value="insane">
+                <label for="difficulty">Insane</label>
+                <br>
+                <button type="submit">Submit</button>
+            </div>
+
+        </form>
+    </section>
+</body>
+</html>

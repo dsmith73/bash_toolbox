@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Raleway&family=Roboto+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #d3ccab;
+    --body-bg: linear-gradient(145deg, rgb(19, 121, 253), rgb(15, 74, 141), rgb(17, 53, 77) 50%, #000);
+    --bomb-bg: rgb(255, 159, 34);
+    --checked-box: rgba(157, 197, 163, 0.8);
+    --kaboom: linear-gradient(15deg, rgb(253, 237, 19), rgb(141, 40, 15), rgb(255, 150, 29) 50%, rgb(221, 9, 9));
+    --flag: rgba(199, 138, 25, 0.5);
+    --big-bada-boom: linear-gradient(15deg, rgb(221, 107, 0), rgb(117, 32, 10), rgb(201, 108, 3) 50%, rgb(124, 0, 0));
+    --chicken-dinner: linear-gradient(215deg, rgb(0, 221, 0), rgb(10, 117, 15), rgb(3, 201, 151) 50%, rgb(11, 90, 0));
+}
+
+.main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+    background: var(--body-bg);
+    color: white;
+    transition: transform 1.3s ease-in;
+}
+
+header {
+    font-size: 2.2rem;
+    font-weight: 800;
+    padding-bottom: 10vh;
+}
+
+.grid {
+    height: 400px;
+    width: 402px;
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--bg);
+    z-index: 100;
+}
+
+.grid div {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 900;
+    border: 1px solid #979797;
+    box-shadow: 2px 3px 3px 2px rgba(116, 116, 116, 0.5);
+}
+
+.grid .checked {
+    border: 2px solid #737373;
+    box-shadow: none;
+    background: var(--checked-box);
+
+}
+
+.grid .flag {
+    background: var(--flag);
+}
+
+.reveal {
+    background: var(--bomb-bg);
+}
+
+.grid .kaboom {
+    background: var(--kaboom);
+    z-index: 200;
+}
+
+@keyframes shakeBomb {
+    0%{ transform: translateY(5px); }
+    15%{ transform: translateX(-5px); }
+    25%{ transform: translateX(5px); }
+    35%{ transform: translateY(-5px); }
+    50%{ transform: translateX(5px); }
+    65%{ transform: translateY(-5px); }
+    75%{ transform: translateY(5px); }
+    85%{ transform: translateX(-5px); }
+    100%{ transform: translateY(5px); }
+}
+
+.big-bada-boom {
+    background: var(--big-bada-boom);
+    color: rgb(251, 255, 4);
+}
+
+.winner {
+    background: var(--chicken-dinner);
+    color: rgb(251, 255, 4);
+}
+
+.valid:hover {
+    cursor: pointer;
+}
+
+.score {
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+    padding: 1rem;
+}
+
+.score > div {
+    align-items: center;
+    justify-content: center;
+}
+
+.controls {
+    font-family: 'Roboto Mono', sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+    padding-top: 2rem;
+    /* Hide until code is implemented */
+    display: none;
+}
+
+.time {
+    /* Hide until code is implemented */
+    display: none;
+}
+
+.controls > div {
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+
+.level select {
+    height: 25px
+}
+
+.controls button {
+    margin-right: 20px;
+}
+
+#control-submit {
+    height: 25px;
+    width: 70px;
+}
+
+
+
+
