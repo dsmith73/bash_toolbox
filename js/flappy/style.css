@@ -13,17 +13,57 @@ body {
     background: var(--bg);
 }
 
-#canvas1 {
+.flappy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+}
+
+.flappy #canvas1 {
     /* center the canvas */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
-    height: 400px;
+    width: 900px;
+    height: 600px;
     border: 2px solid black;
 }
 
+.flappy .wing-flap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
+    margin-top: 400px;
+}
+
+.wing-flap button {
+    width: 100px;
+    height: 50px;
+}
+
+@media screen and (max-width: 900px) {
+    .flappy #canvas1 {
+        width: 800px;
+        height: 500px;
+    }
+    .flappy .wing-flap {
+        margin-top: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .flappy #canvas1 {
+        width: 600px;
+        height: 400px;
+    }
+    .flappy .wing-flap {
+        margin-top: 300px;
+    }
+}
 
 

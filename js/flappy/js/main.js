@@ -1,4 +1,20 @@
 
+let item = document.querySelector(".flap-those-wings");
+let timerID;
+let counter = 0;
+let pressHoldEvent = new CustomEvent("pressHold");
+// Increase or decreae value to adjust how long
+// one should keep pressing down before the pressHold
+// event fires
+let pressHoldDuration = 50;
+// Listening for the mouse and touch events    
+item.addEventListener("mousedown", pressingDown, false);
+item.addEventListener("mouseup", notPressingDown, false);
+item.addEventListener("mouseleave", notPressingDown, false);
+item.addEventListener("touchstart", pressingDown, false);
+item.addEventListener("touchend", notPressingDown, false);
+
+
 let spacePressed = false
 let angle = 0   // will be used by side method to make bird move up and down  
 let hue = 0
@@ -41,6 +57,34 @@ function animate() {
 }
 
 animate()
+
+
+function pressingDown(e) {
+    // Start the timer
+    requestAnimationFrame(timer);
+    e.preventDefault();
+    // console.log("Pressing!");
+    spacePressed = true
+}
+function notPressingDown(e) {
+    // Stop the timer
+    cancelAnimationFrame(timerID);
+    counter = 0;
+    // console.log("Not pressing!");
+    spacePressed = false
+    bird.frameX = 0
+}
+
+function timer() {
+    // console.log("Timer tick!");
+    if (counter < pressHoldDuration) {
+    timerID = requestAnimationFrame(timer);
+    counter++;
+    } else {
+    // console.log("Press threshold reached!");
+    item.dispatchEvent(pressHoldEvent);
+    }
+}
 
 
 window.addEventListener('keydown', function(e) {    // move character  
