@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Raleway&family=Roboto+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: linear-gradient(273deg, rgb(0, 37, 6), rgb(24, 24, 24));
+    --bf: #fff;
+    --wrap-bg: url(./assets/background.png);
+    --key-bg: rgba(26, 26, 26, .6);
+    --key-click: #0f0;
+    --key-arrow: rgb(184, 0, 0);
+    --keypad-shadow:    0 -15px 15px rgba(255, 255, 255, 0.05),
+                        inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+                        0 15px 15px rgba(0, 0, 0, 0.05),
+                        inset 0 15px 15px rgba(0, 0, 0, 0.05);
+}
+
+.main {
+    height: 100vh;
+    width: 100%;
+    background: var(--bg);
+    font-family: 'Roboto', sans-serif;
+    color: var(--bf);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main header {
+    font-size: 2.2rem;
+    margin: 10vh, 0, 0, 0;
+}
+
+/* original tutorial: http://frankslaboratory.co.uk/frogger-game-with-vanilla-javascript */
+
+.wrapper {
+    border: 5px solid black;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    /* background: var(--wrap-bg); */
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+/* KeyPad */
+.keys {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background: var(--key-bg);
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    /* border: 2px solid rgb(31, 31, 31); */
+    margin-bottom: 15px;
+    z-index: 10;
+    color: var(--key-arrow);
+    cursor: pointer;
+    box-shadow: var(--keypad-shadow);
+}
+
+.keys div {
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 2.2rem;}
+
+.lr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.keys .up-arrow {
+    transform: rotate(90deg);
+}
+.keys .down-arrow {
+    transform: rotate(90deg);
+}
+
+.empty {
+    background: rgb(45, 50, 95);
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.left-arrow:hover, .right-arrow:hover, 
+.up-arrow:hover, .down-arrow:hover {
+    color: rgb(255, 159, 14);
+    transition: ease-in-out;
+    transition-delay: 75ms;
+    transition-duration: 75ms;
+}
+
+.left-arrow.click, .right-arrow.click, 
+.up-arrow.click, .down-arrow.click {
+    color: var(--key-click);
+    transition: ease-in-out;
+    transition-delay: 120ms;
+    transition-duration: 120ms;
+}
+
