@@ -49,18 +49,20 @@ function keyDown(e) {
     switch(e.key) {
         case 'ArrowLeft':     // rotate ship LEFT  
             ship.rot = TURN_SPD / 180 * Math.PI / FPS
+            leftArrow.classList.add('click')
             break;
         case 'ArrowUp':   // forward thrust  
-        ship.thrusting = true
-        break;
+            ship.thrusting = true
+            upArrow.classList.add('click')
+            break;
         case 'ArrowRight':
             ship.rot = -TURN_SPD / 180 * Math.PI / FPS
+            rightArrow.classList.add('click')
             break;
-        case 'ArrowDown':     // reverse thrust  
-
-            break;
+        case 'ArrowDown':      
         case ' ':           // fire  
         case 'Space':       // e.code  
+            downArrow.classList.add('click')
             shootLaser()
             break;
     }
@@ -71,19 +73,21 @@ function keyUp(e) {
     switch(e.key) {
         case 'ArrowLeft':     // stop rotate ship LEFT  
             ship.rot = 0
+            leftArrow.classList.remove('click')
             break;
         case 'ArrowUp':   // forward thrust  
             ship.thrusting = false
+            upArrow.classList.remove('click')
             break;
         case 'ArrowRight':
             ship.rot = 0
+            rightArrow.classList.remove('click')
             break;
-        case 'ArrowDown':     // reverse thrust  
-
-            break;
+        case 'ArrowDown':      
         case ' ':           // fire  
         case 'Space':       // e.code  
             ship.canShoot = true    // allow ship to shoot again 
+            downArrow.classList.remove('click')
             break;
     }
 }

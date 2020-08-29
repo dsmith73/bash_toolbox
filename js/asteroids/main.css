@@ -11,6 +11,7 @@
     --bf: #fff;
     --key-click: rgb(0, 150, 0);
     --key-arrow: rgb(61, 242, 255);
+    --FIRE: rgb(255, 103, 103);
     --keypad-shadow:    0 -15px 15px rgba(255, 255, 255, 0.05),
                         inset 0 -15px 15px rgba(255, 255, 255, 0.05),
                         0 15px 15px rgba(0, 0, 0, 0.05),
@@ -73,6 +74,36 @@ body {
 /* KeyPad */
 .keys {
     display: flex;
+    width: 100%;    
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    margin-bottom: 15px;
+    z-index: 10;
+}
+
+.keys div {
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 3rem;}
+
+.lr {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: var(--key-bg);
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    /* border: 2px solid rgb(31, 31, 31); */
+    margin-bottom: 15px;
+    z-index: 10;
+    color: var(--key-arrow);
+    cursor: pointer;
+    box-shadow: var(--keypad-shadow);
+}
+
+.keys .pwr {
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -88,39 +119,33 @@ body {
     box-shadow: var(--keypad-shadow);
 }
 
-.keys div {
-    font-family: 'Roboto Mono', sans-serif;
-    font-size: 2.2rem;}
-
-.lr {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.keys .pwr .up-arrow {
+    font-size: 2rem;
+    transform: rotate(-45deg);
 }
-
-.keys .up-arrow {
-    transform: rotate(90deg);
-}
-.keys .down-arrow {
+.keys .pwr .down-arrow {
+    color: var(--FIRE);
     transform: rotate(180deg);
 }
 
-.empty {
-    background: rgb(45, 50, 95);
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-}
 
-.left-arrow:hover, .right-arrow:hover, 
-.up-arrow:hover, .down-arrow:hover {
+.left-arrow:hover, .right-arrow:hover {
     color: rgb(255, 215, 154);
     text-shadow:    0 0 4px #fff, 0 0 7px #fff, 
                     0 0 9px #e6e200, 0 0 13px #e6e200, 
                     0 0 18px #e6e200, 0 0 25px #e6e200, 
                     0 0 40px #e6e200;
+    transition: ease-in-out;
+    transition-delay: 75ms;
+    transition-duration: 75ms;
+}
+
+.up-arrow:hover, .down-arrow:hover {
+    color: rgb(255, 174, 154);
+    text-shadow:    0 0 4px #fff, 0 0 7px rgb(255, 253, 160), 
+                    0 0 9px #e68200, 0 0 13px #e60000, 
+                    0 0 18px #e69600, 0 0 25px #e68a00, 
+                    0 0 40px #e60000;
     transition: ease-in-out;
     transition-delay: 75ms;
     transition-duration: 75ms;
@@ -171,6 +196,11 @@ body {
     }
     header {
         display: none;
+    }
+    .keys {
+        flex-direction: column;
+        justify-content: space-around;
+        width: 140px;
     }
     #gameCanvas {
         position: relative;
