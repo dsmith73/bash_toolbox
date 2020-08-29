@@ -57,7 +57,9 @@ canvas {
     width: 100%;
 }
 
-
+.disable-dbl-tap-zoom {
+    touch-action: manipulation;
+}
 
 /* KeyPad */
 .keys {
@@ -118,4 +120,71 @@ canvas {
     transition-delay: 120ms;
     transition-duration: 120ms;
 }
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        width: 700px;
+        height: 700px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    header {
+        display: none;
+    }
+    .wrapper {
+        width: 500px;
+        height: 500px;
+        top: 0%;
+        left: 0%;
+        position: absolute;
+        transform: translate(0%, 0%);
+    }
+    canvas {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .wrapper {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media only screen and (max-height: 500px) and (max-width: 768px) and (orientation: landscape) {
+    .main {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    header {
+        display: none;
+    }
+    .wrapper {
+        width: 400px;
+        height: 400px;
+        top: 0%;
+        left: 0%;
+        position: absolute;
+        transform: translate(0%, 0%);
+    }
+    canvas {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+}
+
 

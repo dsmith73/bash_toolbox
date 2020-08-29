@@ -38,6 +38,8 @@ const maxParticles = 300
 const ripplesArr = []
 const carsArr = []
 const logsArr = []
+let scoreHigh    // implement high score  
+const SAVE_KEY_SCORE    = "frog-dsmith73-high-score"   // save key for local storage of high score  
 
 // arrow keys  
 const upArrow = document.querySelector('.up-arrow')

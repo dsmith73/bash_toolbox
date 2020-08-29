@@ -1,3 +1,7 @@
+// get high from local 
+let scoreStr = localStorage.getItem(SAVE_KEY_SCORE)
+scoreStr == null ? scoreHigh =0 : scoreHigh = parseInt(scoreStr)
+
 function animate() {
     ctx1.clearRect(0, 0, canvas.clientWidth, canvas.height)
     ctx2.clearRect(0, 0, canvas.clientWidth, canvas.height)
@@ -117,6 +121,11 @@ function endMoveRight() {
 
 function scored() {
     score++
+    // High Score  
+    if (score > scoreHigh) {
+        scoreHigh = score
+        localStorage.setItem(SAVE_KEY_SCORE, scoreHigh)     // save high score in local storage  
+    }
     gameSpeed += 0.05
     frogger.x = canvas.width/2 - frogger.width/2
     frogger.y = canvas.height - frogger.height - 40
@@ -130,8 +139,10 @@ function handleScoreBoard() {
     ctx4.font = '60px Verdana'
     ctx4.fillText(score, 270, 65)
     ctx4.font = '15px Verdana'
-    ctx4.strokeText('Deaths: ' + collisionsCount, 10, 175)
-    ctx4.strokeText('Speed: ' + gameSpeed.toFixed(1), 10, 195)
+    ctx4.strokeText('Deaths: ' + collisionsCount, 10, 30)
+    ctx4.strokeText('Speed: ' + gameSpeed.toFixed(1), 10, 45)
+    ctx4.strokeText('High Score: ' + scoreHigh, 10, 15)
+    //ctx4.strokeText('Lives: ' + lives, 10, 60)
 }
 
 // collisions of rectangles  
