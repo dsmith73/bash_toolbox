@@ -43,8 +43,8 @@
     top: 50%;
     left: 50%;
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
     transform: translate(-50%, -50%);
     /* background: var(--wrap-bg); */
 }
@@ -127,14 +127,13 @@ canvas {
 
 @media screen and (max-width: 1024px) {
     .wrapper {
-        width: 700px;
-        height: 700px;
+        width: 600px;
+        height: 600px;
     }
 }
 
 @media screen and (max-width: 768px) {
     .main {
-        flex-direction: row;
         align-items: center;
         justify-content: flex-end;
     }
@@ -145,9 +144,9 @@ canvas {
         width: 500px;
         height: 500px;
         top: 0%;
-        left: 0%;
+        left: 50%;
         position: absolute;
-        transform: translate(0%, 0%);
+        transform: translate(-50%, 0%);
     }
     canvas {
         position: absolute;
@@ -156,7 +155,7 @@ canvas {
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 500px) and (orientation: portrait) {
     .wrapper {
         width: 300px;
         height: 300px;
