@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Raleway&family=Roboto+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: linear-gradient(14deg, rgba(0,0,0,1) 20%, rgba(0, 17, 63, 0.9) 70%, rgba(22, 0, 75, 0.9), rgba(218, 123, 0, 0.986));
+    --bf: #fff;
+    --key-click: rgb(0, 150, 0);
+    --key-arrow: rgb(61, 242, 255);
+    --keypad-shadow:    0 -15px 15px rgba(255, 255, 255, 0.05),
+                        inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+                        0 15px 15px rgba(0, 0, 0, 0.05),
+                        inset 0 15px 15px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background: #000;   /* for browsers that can't do linear-gradients */
+    background: var(--bg);
+    color: var(--bf);
+    font-family: 'Roboto Mono', sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+}
+
+.disable-dbl-tap-zoom {
+    touch-action: manipulation;
+}
+
+.main header {
+    font-size: 2.2rem;
+    margin: 10vh, 0, 0, 0;
+}
+
+.wrapper {
+    border: 5px solid black;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 1000px;
+    height: 650px;
+    transform: translate(-50%, -60%);
+    box-shadow: 0 0 4px #fff, 0 0 7px #fff, 
+                0 0 9px #2ee0ff, 0 0 13px #2ee0ff, 
+                0 0 18px #2ee0ff, 0 0 25px #2ee0ff, 
+                0 0 40px #2ee0ff;
+    
+}
+
+
+
+#gameCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+}
+
+
+
+/* KeyPad */
+.keys {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background: var(--key-bg);
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    /* border: 2px solid rgb(31, 31, 31); */
+    margin-bottom: 15px;
+    z-index: 10;
+    color: var(--key-arrow);
+    cursor: pointer;
+    box-shadow: var(--keypad-shadow);
+}
+
+.keys div {
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 2.2rem;}
+
+.lr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.keys .up-arrow {
+    transform: rotate(90deg);
+}
+.keys .down-arrow {
+    transform: rotate(180deg);
+}
+
+.empty {
+    background: rgb(45, 50, 95);
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.left-arrow:hover, .right-arrow:hover, 
+.up-arrow:hover, .down-arrow:hover {
+    color: rgb(255, 215, 154);
+    text-shadow:    0 0 4px #fff, 0 0 7px #fff, 
+                    0 0 9px #e6e200, 0 0 13px #e6e200, 
+                    0 0 18px #e6e200, 0 0 25px #e6e200, 
+                    0 0 40px #e6e200;
+    transition: ease-in-out;
+    transition-delay: 75ms;
+    transition-duration: 75ms;
+}
+
+.left-arrow.click, .right-arrow.click, 
+.up-arrow.click, .down-arrow.click {
+    color: var(--key-click);
+    /* Glow */
+    text-shadow:    0 0 4px #fff, 0 0 7px #fff, 
+                    0 0 9px #8ee600, 0 0 13px #8ee600, 
+                    0 0 18px #8ee600, 0 0 25px #8ee600, 
+                    0 0 40px #8ee600;
+    transition: ease-in-out;
+    transition-delay: 50ms;
+    transition-duration: 120ms;
+}
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        width: 760px;
+        height: 570px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        width: 500px;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .wrapper {
+        width: 400px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-height: 500px) and (max-width: 768px) and (orientation: landscape) {
+    .main {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    header {
+        display: none;
+    }
+    #gameCanvas {
+        position: relative;
+
+        height: 100%;
+        width: 100%;
+        background: black;
+    }
+    .wrapper {
+        width: 600px;
+        height: 400px;
+        top: 0%;
+        left: 0%;
+        position: relative;
+        transform: translate(0%, 0%);
+    }
+}
+
