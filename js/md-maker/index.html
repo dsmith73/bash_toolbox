@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <!-- <script src="./simple.js" defer></script> -->
+    <script src="./setup.js" defer></script>
+    <!-- <script src="./fileOut.js" defer></script> -->
+    <!-- Comment Styles -->
+    <script src="./hashStyle.js" defer></script>
+
+
+    <script src="./commentStyle.js" defer></script>
+
+    <title>MD Maker</title>
+</head>
+<body>
+    <section class="main">
+        <header>Markdown Template Maker</header>
+        <p class="description">Make .md file templates from the comments in your code.</p>
+        <div class="uploader">
+            <div class="controls">
+                <input type="file" id="inpFile" > 
+                <!-- <button class="dlDoc">Download</button> -->
+            </div><br />
+            <div class="output">
+                <textarea id="original" rows="40" placeholder=" Markdown Template Maker by dsmith73"></textarea>
+                <!-- <div class="window">
+                    <textarea id="preview" rows="40" placeholder="Markdown Template"></textarea>
+                </div> -->
+            </div>
+            <div id="output"></div>
+        </div>
+    </section>
+</body>
+</html>

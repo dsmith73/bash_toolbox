@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Raleway&family=Roboto+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: linear-gradient(15deg, rgba(0,0,0), rgba(22, 0, 75), rgba(0, 17, 63), rgba(22, 0, 75), rgba(0, 0, 0));
+    --bf: #fff;
+    --key-click: rgb(0, 150, 0);
+    --key-arrow: rgb(61, 242, 255);
+    --FIRE: rgb(255, 103, 103);
+    --keypad-shadow:    0 -15px 15px rgba(255, 255, 255, 0.05),
+                        inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+                        0 15px 15px rgba(0, 0, 0, 0.05),
+                        inset 0 15px 15px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background: #000;   /* for browsers that can't do linear-gradients */
+    background: var(--bg);
+    color: var(--bf);
+    font-family: 'Roboto Mono', sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+    width: 100%;
+}
+
+.disable-dbl-tap-zoom {
+    touch-action: manipulation;
+}
+
+.main header {
+    font-size: 2.2rem;
+    margin: 10vh, 0, 0, 0;
+}
+
+canvas {
+    border: 5px solid black;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 900px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 4px #fff, 0 0 7px #fff, 
+                0 0 9px #2e31ff, 0 0 13px #2e31ff, 
+                0 0 18px #2e31ff, 0 0 25px #2e31ff, 
+                0 0 40px #2e31ff;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#inpFile, .dlDoc {
+    padding: 10px;
+    color: #fff;
+    background: #000000;
+    border: 3px double rgb(216, 216, 216);
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 3px;
+}
+
+#inpFile:hover, .dlDoc:hover {
+    color: rgb(246, 255, 119);
+    background: #444444;
+    border: 3px double rgb(124, 255, 112);
+}
+
+.main .uploader .output {
+    display: flex;
+    width: 90vw;
+    height: 60vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.main .uploader .output #original,
+.main .uploader .output .window #preview {
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    color: #3eeb1c;
+    background: #000;
+    
+}
+
+.editor-statusbar {     /* markdown window stats */
+    display: none;
+}
+
+.window {
+    display: flex;
+    flex-direction: column;
+    max-height: 60vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.CodeMirror {
+    margin-top: 10px;
+    height: 70vh;
+    width: 100%;
+    color: #000000;
+    background: rgb(167, 167, 167);
+    
+}
+
+
+@media screen and (max-width: 1024px) {
+    #pong {
+        width: 760px;
+        height: 570px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #pong {
+        width: 480px;
+        height: 320px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #pong {
+        width: 420px;
+        height: 280px;
+    }
+}
+
+@media only screen and (max-height: 500px) and (max-width: 768px) and (orientation: landscape) {
+    .main {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    header {
+        display: none;
+    }
+    /* #pong {
+        width: 600px;
+        height: 400px;
+        top: 0%;
+        left: 0%;
+        position: relative;
+        transform: translate(0%, 0%);
+    } */
+}
+
