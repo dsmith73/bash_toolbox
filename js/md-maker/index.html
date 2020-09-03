@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <!-- <script src="./simple.js" defer></script> -->
-    <script src="./setup.js" defer></script>
+    <script src="./js/setup.js" defer></script>
     <!-- <script src="./fileOut.js" defer></script> -->
     <!-- Comment Styles -->
-    <script src="./hashStyle.js" defer></script>
+    <script src="./js/hashStyle.js" defer></script>
+    <script src="./js/slashStyle.js" defer></script>
 
-
-    <script src="./commentStyle.js" defer></script>
+    <script src="./js/mdBlob.js" defer></script>
+    <script src="./js/commentStyle.js" defer></script>
 
     <title>MD Maker</title>
 </head>
@@ -23,7 +24,7 @@
         <p class="description">Make .md file templates from the comments in your code.</p>
         <div class="uploader">
             <div class="controls">
-                <input type="file" id="inpFile" > 
+                <input type="file" id="inpFile" allow="text/*" /> 
                 <!-- <button class="dlDoc">Download</button> -->
             </div><br />
             <div class="output">
