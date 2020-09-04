@@ -6,7 +6,7 @@ function hashStyle(e) {
         arr.unshift("# " + fileName, separator)
         arr.push(separator, footer)
         outOriginal.innerHTML = arr.join('  \r\n')
-        console.log("arr: ", arr)
+        // console.log("arr: ", arr)
         // simplemde.value(outOriginal.innerHTML)      // Turn on to use Markdown editor  
     }
     reader.onerror = (e) => alert(e.target.error.name)
@@ -15,3 +15,4 @@ function hashStyle(e) {
 }
 
 // HASH_STYLE    : "  \n{{ item | regex_findall('(?s)(?:#+|- name:\\s+)(.+?)(?:\\n|\\r)|<#(.*?)#>') | join('  \n') }}  \n  \n  "
+// PY_STYLE      : "  \n{{ item | regex_findall('\"{3}(.*?)\"{3}') | join('  \n') }}  \n  \n  "

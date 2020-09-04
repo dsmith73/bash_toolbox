@@ -1,13 +1,12 @@
 // Future work - 
 /*
-  * remove slashes from beginning of lines  
-  * remove slash * & * slash  
+  * 
 */
 
-function slashStyle(e) {
+function semicolStyle(e) {
     reader.onload = e => {
         let file = reader.result
-        arr = file.match(/(?:\/(?=\*)\W+|\/(?=\*\n))([^`]+?)(?:\*(\/))|(?:\/(?=\/)\W+(.+)(\n|$))/gmi)
+        arr = file.match(/;\s*(.+)\n|$/gmi)
         arr.unshift("# " + fileName, separator)
         arr.push(separator, footer)
         outOriginal.innerHTML = arr.join('  \r\n')
@@ -19,5 +18,5 @@ function slashStyle(e) {
     // console.log("OUT", outOriginal, "ARR", arr.join('  \r\n'))
 }
 
-// SLASH_STYLE   : "  \n{{ item | regex_findall('(?:\\/(?=\\*)\\W+|\\/(?=\\*\\n))([^`]+?)(?:\\*(\\/))|(?:\\/(?=\\/)\\W+(.+)\\n)') | join('  \n') }}  \n  \n  "
+// SEMICOL_STYLE : "  \n{{ item | regex_findall(';\\W+(.+)') | join('  \n') }}  \n  \n  "
 

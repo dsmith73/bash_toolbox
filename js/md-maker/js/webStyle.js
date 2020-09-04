@@ -1,13 +1,12 @@
 // Future work - 
 /*
-  * remove slashes from beginning of lines  
-  * remove slash * & * slash  
+  * 
 */
 
-function slashStyle(e) {
+function webStyle(e) {
     reader.onload = e => {
         let file = reader.result
-        arr = file.match(/(?:\/(?=\*)\W+|\/(?=\*\n))([^`]+?)(?:\*(\/))|(?:\/(?=\/)\W+(.+)(\n|$))/gmi)
+        arr = file.match(/<!-+(?=-+>)?\s*\n*\s*(.+?)\W*\n*\W*-->|<meta([^>]*)/gsi)
         arr.unshift("# " + fileName, separator)
         arr.push(separator, footer)
         outOriginal.innerHTML = arr.join('  \r\n')
@@ -19,5 +18,6 @@ function slashStyle(e) {
     // console.log("OUT", outOriginal, "ARR", arr.join('  \r\n'))
 }
 
-// SLASH_STYLE   : "  \n{{ item | regex_findall('(?:\\/(?=\\*)\\W+|\\/(?=\\*\\n))([^`]+?)(?:\\*(\\/))|(?:\\/(?=\\/)\\W+(.+)\\n)') | join('  \n') }}  \n  \n  "
-
+// WEB_STYLE     : "  \n{{ item | regex_findall('(?:<!-\\W+|<!-\\W+\\n)([^>]*)(?:\\W+->|\\n\\W+->|\\W+\\n\\W+->)') | join('  \n') }}  \n  \n  "
+// # Pull meta from html files
+// META_STYLE    : "  \n{{ item | regex_findall('<meta(.+)>') | join('  \n') }}  \n  \n  "

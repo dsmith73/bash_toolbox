@@ -8,10 +8,13 @@
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <!-- <script src="./simple.js" defer></script> -->
     <script src="./js/setup.js" defer></script>
-    <!-- <script src="./fileOut.js" defer></script> -->
+    <script src="./js/pop.js" defer></script>
+
     <!-- Comment Styles -->
     <script src="./js/hashStyle.js" defer></script>
     <script src="./js/slashStyle.js" defer></script>
+    <script src="./js/webStyle.js" defer></script>
+    <script src="./js/semicolStyle.js" defer></script>
 
     <script src="./js/mdBlob.js" defer></script>
     <script src="./js/commentStyle.js" defer></script>
@@ -21,14 +24,28 @@
 <body>
     <section class="main">
         <header>Markdown Template Maker</header>
-        <p class="description">Make .md file templates from the comments in your code.</p>
+        <p class="description">Make .md file templates from the <span id="cmts" data-modal-target="#modal"><u>comments</u></span> in your code.</p>
+        <!-- <button data-modal-target="#modal">Open Modal</button> -->
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div class="modal-title">Working Comment Styles</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <code>Hash styles: #, &lt;#  #&gt;, """</code><br>
+                <code>Slash styles: //, /* */</code><br>
+                <code>SemiColon styles: ;</code><br>
+                <code>Web styles: &lt;-- --&gt;</code><br>
+            </div>
+        </div>
+        <div id="overlay"></div>
         <div class="uploader">
             <div class="controls">
                 <input type="file" id="inpFile" allow="text/*" /> 
                 <!-- <button class="dlDoc">Download</button> -->
             </div><br />
             <div class="output">
-                <textarea id="original" rows="40" placeholder=" Markdown Template Maker by dsmith73"></textarea>
+                <textarea id="original" rows="40" placeholder="    Markdown Template Maker by dsmith73"></textarea>
                 <!-- <div class="window">
                     <textarea id="preview" rows="40" placeholder="Markdown Template"></textarea>
                 </div> -->

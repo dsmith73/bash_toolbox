@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Raleway&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Catamaran:wght@700&family=Raleway&family=Roboto+Mono&family=Emblema+One&display=swap');
 
-* {
+*, *::after, *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -79,6 +79,10 @@ canvas {
     border: 3px double rgb(124, 255, 112);
 }
 
+.description {
+    margin: 0 50px 0 50px;
+}
+
 .main .uploader .output {
     display: flex;
     width: 90vw;
@@ -90,6 +94,8 @@ canvas {
 .main .uploader .output #original,
 .main .uploader .output .window #preview {
     margin-top: 20px;
+    min-width: 375px;
+    min-height: 375px;
     width: 100%;
     height: 100%;
     color: #3eeb1c;
@@ -114,48 +120,129 @@ canvas {
     height: 70vh;
     width: 100%;
     color: #000000;
-    background: rgb(167, 167, 167);
+    background: rgb(255, 72, 72);
     
 }
 
-
-@media screen and (max-width: 1024px) {
-    #pong {
-        width: 760px;
-        height: 570px;
-    }
+#cmts {
+    color: rgb(251, 255, 73);
+    cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
-    #pong {
-        width: 480px;
-        height: 320px;
-    }
+.modal {
+    /* center in screen */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);   /* center in container  - scale 0 to hide */
+    transition: 200ms ease-in-out;
+    border: 1px solid #000000;
+    border-radius: 10px;    /* curve edges */
+    z-index: 10;
+    background-color: #ffffff;
+    min-width: 275px;
+    max-width: 80%;
 }
 
-@media screen and (max-width: 500px) {
-    #pong {
-        width: 420px;
-        height: 280px;
-    }
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);   /* scale 1 to show */
 }
 
-@media only screen and (max-height: 500px) and (max-width: 768px) and (orientation: landscape) {
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-bottom: 1px solid black;
+    font-family: 'Emplema One', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    background-color: rgba(0,0,0, .14);
+    font-weight: bold;
+}
+
+.modal-header .modal-title {
+    color: black;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: rgb(177, 15, 15);
+    font-size: 1.5em;
+    background: none;
+}
+
+.modal-body {
+    font-family: 'Roboto Mono', sans-serif;
+    color: #000;
+    justify-content: space-evenly;
+    font-size: 1rem;
+    font-weight: normal;
+    padding: 20px 25px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    background-color: rgba(0,0,0, .4);
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+@media only screen and (max-height: 520px) {
     .main {
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: space-around;
     }
     header {
         display: none;
     }
-    /* #pong {
-        width: 600px;
-        height: 400px;
-        top: 0%;
-        left: 0%;
-        position: relative;
-        transform: translate(0%, 0%);
-    } */
+    .uploader {
+        position: absolute;
+        margin-top: 0;
+        align-content: space-around;
+    }
+    .controls{
+        align-self: flex-start;
+    }
+    .description{
+        padding: 0;
+        align-self: flex-start;
+    }
 }
+
+@media only screen and (max-width: 500px) {
+    .main {
+
+        align-items: center;
+        justify-content: space-around;
+    }
+    header {
+        display: none;
+    }
+    .uploader {
+        margin-top: 0;
+        align-content: space-around;
+    }
+    .controls{
+        align-self: flex-start;
+    }
+    .description{
+        padding: 0;
+    }
+}
+
 
