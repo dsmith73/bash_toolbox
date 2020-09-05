@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="./js/setup.js"></script>
+    <script defer src="./js/sounds.js"></script>
+    <script defer src="./js/simon.js"></script>
+    <script defer src="./js/pop.js"></script>
+    <title>Simon Says</title>
+</head>
+<body>
+    <section class="main">
+        <header data-modal-target="#modal">Simon Says</header>
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div class="modal-title">
+                    Playing the game
+                </div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                Repeat the color sequences of Simon.<br>
+            </div>
+            <div id="overlay"></div>
+        </div>
+        <div id="gameboard">
+            <div>
+                <div onclick="panelClicked(event.currentTarget)" class="panel top-lt-panel" id="blue"></div>
+                <div onclick="panelClicked(event.currentTarget)" class="panel top-rt-panel" id="yellow"></div>
+            </div>
+            <div class="center-circle" id="startGame" >Play</div>
+            <div>
+                <div onclick="panelClicked(event.currentTarget)" class="panel bot-lt-panel" id="red"></div>
+                <div onclick="panelClicked(event.currentTarget)" class="panel bot-rt-panel" id="green"></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
