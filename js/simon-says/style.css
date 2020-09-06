@@ -21,6 +21,10 @@
     --xxx:           radial-gradient(#ffffff, #ff4444, #a30000);
     --purple:        radial-gradient(#4b0091, #ff00ff);
 
+    --primary-color: rgba(73, 73, 73, .65);
+    --overlay-color: linear-gradient(90deg, rgba(0, 101, 141, 0.65) 10%, rgb(12, 37, 65) 15% 80%, rgba(0, 101, 141, .65));
+    --menu-speed: 0.75s;
+    
     --ctr-cir-shadow: 0 -15px 15px rgba(255, 255, 255, 0.1),
                         inset 0 -15px 15px rgba(255, 255, 255, 0.1),
                         0 15px 15px rgba(0, 0, 0, 0.1),
@@ -52,6 +56,7 @@ body {
 }
 .main header {
     font-size: 2.2rem;
+    cursor: pointer;
 }
 
 
@@ -179,7 +184,7 @@ body {
     transition: 200ms ease-in-out;
     border: 1px solid #000000;
     border-radius: 10px;    /* curve edges */
-    z-index: 10;
+    z-index: 100;
     background-color: #ffffff;
     min-width: 275px;
     max-width: 80%;

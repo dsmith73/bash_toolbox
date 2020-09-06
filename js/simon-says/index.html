@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
     <script defer src="./js/setup.js"></script>
     <script defer src="./js/sounds.js"></script>
     <script defer src="./js/simon.js"></script>
@@ -12,6 +13,19 @@
 </head>
 <body>
     <section class="main">
+        <div class="menu-wrap">
+            <input type="checkbox" class="toggler" unchecked>
+            <div class="hamburger"><div></div></div>
+            <div class="menu">
+                <div>
+                    <div>
+                        <ul>
+                            <li><a id="traditional">Traditional?</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         <header data-modal-target="#modal">Simon Says</header>
         <div class="modal" id="modal">
             <div class="modal-header">

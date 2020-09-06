@@ -1,6 +1,6 @@
 
 const startGame = document.addEventListener('click', e => {
-    console.log(e.srcElement.id)
+    // console.log(e.srcElement.id)
     if (e.srcElement.id === "startGame") {
         centerCir.classList.add('active')
         setTimeout(() => {  // time to highlight the panel  
@@ -14,6 +14,19 @@ const startGame = document.addEventListener('click', e => {
             main()
         }, 1000)
         
+    }
+})
+
+const traditionalPlay = document.addEventListener('click', e => {
+    // console.log(e)
+    if (e.srcElement.id === "traditional") {
+        if (e.target.className != "active") {
+            traditional.classList.add('active')
+            tradition = false
+        } else {
+            traditional.classList.remove('active')
+            tradition = true
+        }
     }
 })
 
@@ -42,37 +55,60 @@ const flash = panel => {
 const panelClicked = panel => {
     if (!clickable) return
     // console.log(panel)
-    if (panel === order[0]) {
-        playSound(panel)
-        order.shift()
-        flash(panel)
-    } else wamie(panel)
-    if (order.length === 0) {
-        score ++
-        clickable = false
-        setTimeout(() => {
-            main()
-        }, 1000)
-        
-    } 
+    if (!tradition) {
+        if (panel === order[0]) {
+            playSound(panel)
+            order.shift()
+            flash(panel)
+        } else wamie(panel)
+        if (order.length === 0) {
+            score ++
+            clickable = false
+            setTimeout(() => {
+                main()
+            }, 1000)
+        } 
+    } else {
+        if (panel === userArr[0]) {
+            playSound(panel)
+            userArr.shift()
+            flash(panel)
+        } else wamie(panel)
+        if (userArr.length === 0) {
+            score ++
+            clickable = false
+            setTimeout(() => {
+                main()
+            }, 1000)
+        }
+    }
+    
 }
 
 function wamie(panel) {
     centerCir.classList.add('xxx')
     panel.classList.add('xxx')
-    centerCir.style.animation = "kaboom .3s ease";
+    centerCir.style.animation = "kaboom .3s ease"
+    playWhammy()
     setTimeout(() => {   
         centerCir.classList.remove('xxx')
         panel.classList.remove('xxx')
     }, 1500)
     gameOver = true
+    clickable = false
 }
 
 function gameLogic() {
-    count++
-    for (let i=0; i < count; i++) {
+    if (!tradition) {
+        count++
+        for (let i=0; i < count; i++) {
+            order.push(getRandomPanel())
+        }
+    } else {
         order.push(getRandomPanel())
+        userArr = [...order]
     }
+    
     // console.log(order)
 }
 
