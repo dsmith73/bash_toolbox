@@ -8,15 +8,9 @@ import (
 	"strings"
 )
 
-// Website struct takes an input of website name,
-// performs a DNS lookup, and returns an IP address
-type Website struct {
-	name string
-}
+func Lookup(Website string) {
 
-func Lookup(Website) {
-	var website Website
-	ip, err := net.LookupHost(website.name)
+	ip, err := net.LookupHost(Website)
 
 	if err != nil {
 		fmt.Println(err)
@@ -31,6 +25,7 @@ func Lookup(Website) {
 }
 
 // func main() {
-// 	Lookup()
+// 	site := "dsmith73.duckdns.org"
+// 	Lookup(site)
 
 // }
