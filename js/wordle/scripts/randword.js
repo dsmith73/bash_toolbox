@@ -39,7 +39,7 @@ function getRandomWord() {
 
 async function implementWord() {
     wordOfTheDay = await getRandomWord()
-    console.log(wordOfTheDay)
+//     console.log(wordOfTheDay)
     return wordOfTheDay
 }
 
