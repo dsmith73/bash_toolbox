@@ -27,7 +27,7 @@ let Player = {
     pWins: 0,                   // Total number of Wins  
     numGuess: 0,                // Number of guesses this game  
     avgNumGuess: 1.0,           // avgNumGuess = avgNumGuess * (((totGame-1)/totGame) + (numGuess /totGame))  
-    avgDiff: 1.0,               // avgDiff =   
+    avgDiff: 5.0,               // avgDiff =   
     lastDiff: 5,                // Difficulty of last game  
     lastGrid: 5                 // size of grid in previous game  
 }
@@ -78,12 +78,11 @@ function getPlayerInfo(scoreStr) {
         Player.avgNumGuess  = pObject.avgNumGuess 
         Player.lastGrid     = pObject.lastGrid
         Player.lastDiff     = parseInt(pObject.lastDiff)
-        Player.avgDiff      = pObject.avgDiff * (((pObject.totGame -1 ) / pObject.totGame) + (pObject.lastGrid / pObject.totGame)) 
+        Player.avgDiff      = (pObject.avgDiff + (parseInt(pObject.lastDiff) - pObject.avgDiff)) / Math.min(Player.totGame, 7)
     }
     
     console.log(Player)
 }
-
 
 function stopInteraction() {
     document.removeEventListener("click", handleMouseClick)
@@ -249,11 +248,13 @@ function checkWinLose(guess, tiles) {
         Player.lastDiff = parseInt(slider.value)
         Player.pWins        = Player.pWins++
         Player.numGuess     = 6 - (remainingTiles.length / gridWidth)
-        Player.avgNumGuess  = Player.avgNumGuess * (((Player.totGame -1 ) / Player.totGame) + (Player.numGuess / Player.totGame))
+        // average = average + (value - average) / min(counter, FACTOR)
+        // FACTOR = 7 (weekly running avg)
+        Player.avgNumGuess  = (Player.avgNumGuess + (Player.numGuess - Player.avgNumGuess)) / Math.min(Player.totGame, 7)
         Player.lastGrid     = gridWidth
+        Player.totGame++
         localStorage.setItem(SAVE_KEY_SCORE, JSON.stringify(Player))     // save Player info in local storage 
         console.log("Winner, Winner, Chicken Dinner!")
-        Player.totGame++
         stopInteraction()
         return
     }
@@ -263,11 +264,11 @@ function checkWinLose(guess, tiles) {
         Player.lastDiff = parseInt(slider.value)
         Player.pWins        = Player.pWins
         Player.numGuess     = 6
-        Player.avgNumGuess  = Player.avgNumGuess * (((Player.totGame -1 ) / Player.totGame) + (Player.numGuess / Player.totGame))
+        Player.avgNumGuess  = (Player.avgNumGuess + (Player.numGuess - Player.avgNumGuess)) / Math.min(Player.totGame, 7)
         Player.lastGrid     = gridWidth
+        Player.totGame++
         localStorage.setItem(SAVE_KEY_SCORE, JSON.stringify(Player))     // save Player info in local storage 
         console.log("Loser, loser, Punkey Brewster!")
-        Player.totGame++
         stopInteraction()
     }
 }
@@ -283,11 +284,4 @@ function danceTiles(tiles){
 
     })
 }
-
-
-
-
-
-
-
 
