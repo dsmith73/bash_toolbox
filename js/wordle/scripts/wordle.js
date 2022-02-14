@@ -35,8 +35,8 @@ const SAVE_KEY_SCORE = "wordle-dsmith73-player"   // save key for local storage 
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
 let scoreStr = localStorage.getItem(SAVE_KEY_SCORE)
-console.log(scoreStr)
-scoreStr == null ? Player : getPlayerInfo(scoreStr)
+
+Player.totGame < 1  ? Player : getPlayerInfo(scoreStr)
 
 
 function destroyGrid() {
