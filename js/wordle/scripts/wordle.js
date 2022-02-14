@@ -23,7 +23,7 @@ let gridWidth
 let scale = 4
 let turns = 0
 let Player = {
-    totGame: 0,                 // Total number of games played  
+    totGame: 1,                 // Total number of games played  
     pWins: 0,                   // Total number of Wins  
     numGuess: 0,                // Number of guesses this game  
     avgNumGuess: 1.0,           // avgNumGuess = avgNumGuess * (((totGame-1)/totGame) + (numGuess /totGame))  
