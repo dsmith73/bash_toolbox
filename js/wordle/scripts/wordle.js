@@ -36,8 +36,6 @@ const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
 let scoreStr = localStorage.getItem(SAVE_KEY_SCORE)
 
-Player.totGame < 1  ? Player : getPlayerInfo(scoreStr)
-
 
 function destroyGrid() {
     // return grid to 1 child    
@@ -70,14 +68,22 @@ function startInteraction() {
 function getPlayerInfo(scoreStr) {
     // Get locally saved object and load into Player{}  
     var pObject = JSON.parse(scoreStr);
-    Player.totGame      = pObject.totGame
-    Player.pWins        = pObject.pWins 
-    Player.avgNumGuess  = pObject.avgNumGuess 
-    Player.lastGrid     = pObject.lastGrid
-    Player.lastDiff     = parseInt(pObject.lastDiff)
-    Player.avgDiff      = pObject.avgDiff * (((pObject.totGame -1 ) / pObject.totGame) + (pObject.lastGrid / pObject.totGame)) 
+
+    // if new player, use values in Player, otherwise, load pObject values  
+    if (pObject.totGame < 1) {
+        Player
+    } else {
+        Player.totGame      = pObject.totGame
+        Player.pWins        = pObject.pWins 
+        Player.avgNumGuess  = pObject.avgNumGuess 
+        Player.lastGrid     = pObject.lastGrid
+        Player.lastDiff     = parseInt(pObject.lastDiff)
+        Player.avgDiff      = pObject.avgDiff * (((pObject.totGame -1 ) / pObject.totGame) + (pObject.lastGrid / pObject.totGame)) 
+    }
+    
     console.log(Player)
 }
+
 
 function stopInteraction() {
     document.removeEventListener("click", handleMouseClick)
