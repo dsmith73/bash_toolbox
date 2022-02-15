@@ -23,7 +23,6 @@ body {
     margin: 0;
     padding: 1em;
     font-size: clamp(.5rem, 2.5vh, 1.5rem);
-    flex-shrink: 0;
 }
 
 .keyboard {
@@ -115,6 +114,7 @@ body {
     align-items: center;
     user-select: none;
     transition: transform 250ms linear;
+    min-width: 0;
 }
 
 .tile[data-state="active"] {
