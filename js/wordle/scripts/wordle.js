@@ -39,7 +39,7 @@ let scoreStr = localStorage.getItem(SAVE_KEY_SCORE)
 let screenHeight = window.innerHeight
 let screenWidth = window.innerWidth
 
-if (screenHeight < 850 ) square.setAttribute('style', `flex-shrink: 2;`)
+if (screenHeight < 850 ) scale = 3
 
 
 console.log(screenWidth, screenHeight)
