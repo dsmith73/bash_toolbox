@@ -35,7 +35,14 @@ const SAVE_KEY_SCORE = "wordle-dsmith73-player"   // save key for local storage 
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
 let scoreStr = localStorage.getItem(SAVE_KEY_SCORE)
+// handle different screen sizes  
+let screenHeight = window.innerHeight
+let screenWidth = window.innerWidth
 
+if (screenHeight < 850 ) square.setAttribute('style', `flex-shrink: 2;`)
+
+
+console.log(screenWidth, screenHeight)
 
 function destroyGrid() {
     // return grid to 1 child    
@@ -47,7 +54,7 @@ function startInteraction() {
     if (activeTiles.length === 0 ) {
         gridWidth = parseInt(slider.value) 
         // determine the dimensions of the .guess-grid boxes  
-        gridWidth > 7 ? gridWidth > 9 ? scale = 2.5 : scale = 3 : scale
+        gridWidth > 7 ? gridWidth > 9 ? scale = scale - 1.5 : scale = scale - 1 : scale
         // update .guess-grid to the length of the word & set box dimensions   
         square.setAttribute('style', `grid-template-columns: repeat(${gridWidth}, ${scale}em);
                                         grid-template-rows: repeat(6, ${scale}em);`);
