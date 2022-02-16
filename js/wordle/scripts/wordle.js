@@ -69,7 +69,7 @@ function startInteraction() {
     document.addEventListener("click", handleMouseClick)
     document.addEventListener("keydown", handleKeyPress)
     // Implement this event listener if keydown doesn't handle mobile  
-    // document.addEventListener("touch", handleKeyTouch)
+    document.addEventListener("touch", handleMouseClick)
 }
 
 function getPlayerInfo(scoreStr) {
@@ -95,7 +95,7 @@ function stopInteraction() {
     document.removeEventListener("click", handleMouseClick)
     document.removeEventListener("keydown", handleKeyPress)
     // Implement this event listener if keydown doesn't handle mobile  
-    // document.addEventListener("touch", handleKeyTouch)
+    document.removeEventListener("touch", handleMouseClick)
 }
 
 function handleMouseClick(e) {
