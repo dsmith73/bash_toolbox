@@ -92,7 +92,7 @@ body {
     display: grid;
     justify-content: center;
     align-content: center;
-    flex-grow: 0.25;
+    flex-grow: 2;
 /*     grid-template-columns: repeat(5, 4em); */
     grid-template-rows: repeat(6, 4em);
     gap: .25em;
