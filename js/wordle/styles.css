@@ -66,9 +66,9 @@ body {
     height: 1.75em;
 }
 
-.key:hover, .key:focus {
+/* .key:hover, .key:focus {
     --lightness-offset: 10%;
-}
+} */
 
 
 .key.wrong {
