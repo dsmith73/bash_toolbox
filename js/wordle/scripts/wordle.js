@@ -12,12 +12,15 @@ var slider = document.getElementById("myRange");
 var output = document.getElementById("value");
 const alertContainer = document.querySelector("[data-alert-container]")
 const keyboard = document.querySelector("[data-keyboard]")
+const key = document.querySelector(".key")
 const guessGrid = document.querySelector("[data-guess-grid]")
 const openModalButton = document.querySelectorAll('[data-modal-target]')
 const closeModalButton = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
-const gear = document.querySelector(".options")
+const gear = document.querySelector(".options")  
 
+//check if touchevent is available  
+let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click'
 // define grid width based on word size from difficulty slider   
 let gridWidth
 let scale = 4
@@ -35,14 +38,17 @@ const SAVE_KEY_SCORE = "wordle-dsmith73-player"   // save key for local storage 
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
 let scoreStr = localStorage.getItem(SAVE_KEY_SCORE)
+
 // handle different screen sizes  
+// let screenWidth = window.screen.availWidth
+// let screenHeight = window.screen.availWidth
 let screenHeight = window.innerHeight
 let screenWidth = window.innerWidth
 
 if (screenHeight < 850 ) scale = 3
 
 
-console.log(screenWidth, screenHeight)
+// console.log(screenWidth, screenHeight)
 
 function destroyGrid() {
     // return grid to 1 child    
@@ -66,10 +72,12 @@ function startInteraction() {
     }
 
 
+    //bind touch event to the button with id = myFunction2 and call myFunction2 function  
+    key.addEventListener(touchEvent, handleMouseClick)
     document.addEventListener("click", handleMouseClick)
     document.addEventListener("keydown", handleKeyPress)
     // Implement this event listener if keydown doesn't handle mobile  
-//     document.addEventListener("touch", handleMouseClick)
+    // document.addEventListener("touch", handleMouseClick)
 }
 
 function getPlayerInfo(scoreStr) {
@@ -95,8 +103,9 @@ function stopInteraction() {
     document.removeEventListener("click", handleMouseClick)
     document.removeEventListener("keydown", handleKeyPress)
     // Implement this event listener if keydown doesn't handle mobile  
-//     document.removeEventListener("touch", handleMouseClick)
+    key.removeEventListener(touchEvent, handleMouseClick)
 }
+
 
 function handleMouseClick(e) {
     // console.log(e)
