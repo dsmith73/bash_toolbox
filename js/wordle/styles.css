@@ -92,9 +92,9 @@ body {
     display: grid;
     justify-content: center;
     align-content: center;
-    flex-grow: 2;
-/*     grid-template-columns: repeat(5, 4em); */
-    grid-template-rows: repeat(6, 4em);
+    flex-grow: 0;
+    /* grid-template-columns: repeat(5, 2.5em); */
+    grid-template-rows: repeat(6, 2.5em);
     gap: .25em;
     border-bottom: 1em;
     border-radius: .25em;
@@ -114,7 +114,7 @@ body {
     align-items: center;
     user-select: none;
     transition: transform 250ms linear;
-/*     min-width: 0; */
+    min-width: 0;
 }
 
 .tile[data-state="active"] {
