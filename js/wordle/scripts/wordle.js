@@ -86,7 +86,7 @@ function getPlayerInfo(scoreStr) {
         Player.lastDiff     = parseInt(pObject.lastDiff)
         Player.avgDiff      = parseInt(pObject.avgDiff)
     }
-//     console.log(Player)
+    console.log(Player)
 }
 
 function stopInteraction() {
