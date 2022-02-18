@@ -12,7 +12,6 @@ var slider = document.getElementById("myRange");
 var output = document.getElementById("value");
 const alertContainer = document.querySelector("[data-alert-container]")
 const keyboard = document.querySelector("[data-keyboard]")
-// let key = document.querySelector(".key")
 const guessGrid = document.querySelector("[data-guess-grid]")
 const openModalButton = document.querySelectorAll('[data-modal-target]')
 const closeModalButton = document.querySelectorAll('[data-close-button]')
@@ -26,13 +25,13 @@ let gridWidth
 let scale = 4
 let turns = 0
 let Player = {
-    totGame: 1,                 // Total number of games played  
+    totGame: 0,                 // Total number of games played  
     pWins: 0,                   // Total number of Wins  
     numGuess: 0,                // Number of guesses this game  
-    avgNumGuess: 1.0,           // avgNumGuess = avgNumGuess * (((totGame-1)/totGame) + (numGuess /totGame))  
-    avgDiff: 5.0,               // avgDiff =   
-    lastDiff: 5,                // Difficulty of last game  
-    lastGrid: 5                 // size of grid in previous game  
+    avgNumGuess: 0.0,           // avgNumGuess = avgNumGuess * (((totGame-1)/totGame) + (numGuess /totGame))  
+    avgDiff: 0.0,               // avgDiff =   
+    lastDiff: 0,                // Difficulty of last game  
+    lastGrid: 0                 // size of grid in previous game  
 }
 const SAVE_KEY_SCORE = "wordle-dsmith73-player"   // save key for local storage of player data 
 const FLIP_ANIMATION_DURATION = 500
@@ -85,10 +84,9 @@ function getPlayerInfo(scoreStr) {
         Player.avgNumGuess  = pObject.avgNumGuess 
         Player.lastGrid     = pObject.lastGrid
         Player.lastDiff     = parseInt(pObject.lastDiff)
-        Player.avgDiff      = (pObject.avgDiff + (parseInt(pObject.lastDiff) - pObject.avgDiff)) / Math.min(Player.totGame, 7)
+        Player.avgDiff      = parseInt(pObject.avgDiff)
     }
-    
-    console.log(Player)
+//     console.log(Player)
 }
 
 function stopInteraction() {
@@ -250,9 +248,9 @@ function checkWinLose(guess, tiles) {
         Player.lastDiff = parseInt(slider.value)
         Player.pWins        = Player.pWins++
         Player.numGuess     = 6 - (remainingTiles.length / gridWidth)
-        // average = average + (value - average) / min(counter, FACTOR)
-        // FACTOR = 7 (weekly running avg)
-        Player.avgNumGuess  = (Player.avgNumGuess + (Player.numGuess - Player.avgNumGuess)) / Math.min(Player.totGame, 7)
+        // running AVG = ((previous avg Guesses * previous total games) + new guesses) / new total games
+        Player.avgNumGuess  = ((Player.avgNumGuess * Player.totGame) + Player.numGuess) / (Player.totGame + 1)
+        Player.avgDiff      = ((Player.avgDiff * Player.totGame) + Player.lastDiff) / (Player.totGame + 1)
         Player.lastGrid     = gridWidth
         Player.totGame++
         localStorage.setItem(SAVE_KEY_SCORE, JSON.stringify(Player))     // save Player info in local storage 
@@ -263,10 +261,11 @@ function checkWinLose(guess, tiles) {
 
     if (remainingTiles.length === 0) {
         showAlert(wordOfTheDay.toUpperCase(), null)
-        Player.lastDiff = parseInt(slider.value)
+        Player.lastDiff     = parseInt(slider.value)
         Player.pWins        = Player.pWins
         Player.numGuess     = 6
-        Player.avgNumGuess  = (Player.avgNumGuess + (Player.numGuess - Player.avgNumGuess)) / Math.min(Player.totGame, 7)
+        Player.avgNumGuess  = ((Player.avgNumGuess * Player.totGame) + Player.numGuess) / (Player.totGame + 1)
+        Player.avgDiff      = ((Player.avgDiff * Player.totGame) + Player.lastDiff) / (Player.totGame + 1)
         Player.lastGrid     = gridWidth
         Player.totGame++
         localStorage.setItem(SAVE_KEY_SCORE, JSON.stringify(Player))     // save Player info in local storage 
