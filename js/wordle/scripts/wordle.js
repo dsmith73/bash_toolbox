@@ -12,7 +12,7 @@ var slider = document.getElementById("myRange");
 var output = document.getElementById("value");
 const alertContainer = document.querySelector("[data-alert-container]")
 const keyboard = document.querySelector("[data-keyboard]")
-const key = document.querySelector(".key")
+// let key = document.querySelector(".key")
 const guessGrid = document.querySelector("[data-guess-grid]")
 const openModalButton = document.querySelectorAll('[data-modal-target]')
 const closeModalButton = document.querySelectorAll('[data-close-button]')
@@ -40,15 +40,12 @@ const DANCE_ANIMATION_DURATION = 500
 let scoreStr = localStorage.getItem(SAVE_KEY_SCORE)
 
 // handle different screen sizes  
-// let screenWidth = window.screen.availWidth
-// let screenHeight = window.screen.availWidth
 let screenHeight = window.innerHeight
 let screenWidth = window.innerWidth
 
 if (screenHeight < 850 ) scale = 3
 
 
-// console.log(screenWidth, screenHeight)
 
 function destroyGrid() {
     // return grid to 1 child    
@@ -71,13 +68,8 @@ function startInteraction() {
         }
     }
 
-
-    //bind touch event to the button with id = myFunction2 and call myFunction2 function  
-    key.addEventListener(touchEvent, handleMouseClick)
-    document.addEventListener("click", handleMouseClick)
     document.addEventListener("keydown", handleKeyPress)
-    // Implement this event listener if keydown doesn't handle mobile  
-    // document.addEventListener("touch", handleMouseClick)
+    keyboard.addEventListener(touchEvent, handleMouseClick)
 }
 
 function getPlayerInfo(scoreStr) {
@@ -85,7 +77,7 @@ function getPlayerInfo(scoreStr) {
     var pObject = JSON.parse(scoreStr);
 
     // if new player, use values in Player, otherwise, load pObject values  
-    if (pObject.totGame < 1) {
+    if (pObject === null ) {
         Player
     } else {
         Player.totGame      = pObject.totGame
@@ -100,44 +92,40 @@ function getPlayerInfo(scoreStr) {
 }
 
 function stopInteraction() {
-    document.removeEventListener("click", handleMouseClick)
     document.removeEventListener("keydown", handleKeyPress)
-    // Implement this event listener if keydown doesn't handle mobile  
-    key.removeEventListener(touchEvent, handleMouseClick)
+    keyboard.removeEventListener(touchEvent, handleMouseClick)
 }
-
 
 function handleMouseClick(e) {
     // console.log(e)
-    // && pointerId > 0 to overcome bug where using Enter on keyboard would  
-    // cause propegation of letter previously clicked by mouse  
-    if (e.target.matches("[data-key") && e.pointerId > 0) {
+    if (e.target.matches("[data-key]")) {
         // console.log(e)
         pressKey(e.target.dataset.key)
         return
     }
-    if (e.target.matches("[data-enter]") && e.pointerId > 0) {
+    if (e.target.matches("[data-enter]")) {
         submitGuess()
         return
     }
-    if (e.target.matches("[data-delete]") && e.pointerId > 0) {
+    if (e.target.matches("[data-delete]")) {
         deleteKey()
         return
     }
-    if (e.target.matches("slider") && e.pointerId > 0) {
+    if (e.target.matches("slider")) {
         
         return
     }
 }
 
 function handleKeyPress(e) {
+    // console.log(e)
     if (e.key === "Enter") {
-        // console.log(e)
         submitGuess()
         return
     }
     if (e.key === "Delete" || e.key === "Backspace") {
         deleteKey()
+        e.preventDefault()
         return
     }
     if (e.key.match(/^[a-z]$/)) {
@@ -167,8 +155,6 @@ async function submitGuess() {
     if (activeTiles.length !== gridWidth) {
         showAlert("Word isn't long enough")
         shakeTiles(activeTiles)
-        // console.log(activeTiles.length)
-        // console.log(gridWidth)
         return
     }
 
