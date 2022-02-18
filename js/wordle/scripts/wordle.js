@@ -246,7 +246,7 @@ function checkWinLose(guess, tiles) {
         showAlert("You WIN!!", 5000)
         danceTiles(tiles)
         Player.lastDiff = parseInt(slider.value)
-        Player.pWins        = Player.pWins++
+        Player.pWins++
         Player.numGuess     = 6 - (remainingTiles.length / gridWidth)
         // running AVG = ((previous avg Guesses * previous total games) + new guesses) / new total games
         Player.avgNumGuess  = ((Player.avgNumGuess * Player.totGame) + Player.numGuess) / (Player.totGame + 1)
