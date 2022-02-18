@@ -66,9 +66,9 @@ body {
     height: 1.75em;
 }
 
-/* .key:hover, .key:focus {
+.key:hover, .key:focus {
     --lightness-offset: 10%;
-} */
+}
 
 
 .key.wrong {
@@ -193,7 +193,7 @@ body {
 
 .alert-container {
     position: fixed;
-    top: 10vh;
+    top: 10%;
     left: 50vw;
     transform: translateX(-50%);
     z-index: 1;
@@ -399,5 +399,34 @@ body {
     transition-duration: 50ms;
 }
 
+
+/* Mobile devices */
+
+/* @media screen and (max-width: 1024px) {
+    .wrapper {
+        width: 760px;
+        height: 570px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        width: 500px;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .wrapper {
+        width: 400px;
+        height: 200px;
+    }
+} */
+
+@media only screen and (max-height: 500px) and (max-width: 768px) and (orientation: landscape) {
+    header {
+        display: none;
+    }
+}
 
 
