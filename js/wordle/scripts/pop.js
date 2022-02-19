@@ -13,14 +13,6 @@ openModalButton.forEach(button => {
     })
 })
 
-overlay.addEventListener('click', () => {
-    const modals = document.querySelectorAll('.modal.active')
-    // loop over each modal  
-    modals.forEach(modal => {
-        closeModal(modal)
-    })
-})
-
 closeModalButton.forEach(button => {
     button.addEventListener('click', () => {
         // get #modal from data-modal-target
@@ -30,8 +22,6 @@ closeModalButton.forEach(button => {
 })
 
 function openModal(modal) {
-    // if (modal == null) return   // just return if not clicked  
-    // if we do have a click, then add active class to modal and overlay
     gear.classList.add("active")
     modal.classList.add('active')
     overlay.classList.add('active')
@@ -45,7 +35,6 @@ function openModal(modal) {
 
 function closeModal(modal) {
     if (modal == null) return 
-    // if we do have a close click, then remove active class to modal and overlay
     modal.classList.remove('active')
     overlay.classList.remove('active')
     gear.classList.remove("active")
@@ -78,7 +67,37 @@ let startGame = () => {
 
 function begin() {
     const modal = document.querySelector(".modal")
-    openModal(modal)  
+    const infoPanel = document.querySelector(".infoPanel")
+    Player.totGame <= 3 ? showInfo(infoPanel) : openModal(modal)  
+    
+    openModal(modal) 
 }
+
+
+///////////  Info Panel  ///////////  
+function showInfo(infoPanel) {
+    infoPanel.classList.add('active')
+}
+    
+function closeInfo(infoPanel) {
+    infoPanel.classList.remove('active')
+}
+
+openInfoButton.forEach(button => {
+    button.addEventListener('click', () => {
+        // get #modal from data-modal-target
+        const info = document.querySelector(".infoPanel")
+        showInfo(info)
+    })
+})
+
+closeInfoButton.forEach(button => {
+    button.addEventListener('click', () => {
+        // get #modal from data-modal-target
+        const info = button.closest('.infoPanel')  // get closest parent element with class modal  
+        closeInfo(info)
+    })
+})
+
 
 begin()
