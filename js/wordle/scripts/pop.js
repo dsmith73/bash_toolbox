@@ -25,7 +25,6 @@ function openModal(modal) {
     gear.classList.add("active")
     modal.classList.add('active')
     overlay.classList.add('active')
-    getPlayerInfo(scoreStr)
     total.innerHTML = Player.totGame
     totalWins.innerHTML = Player.pWins
     avgDifficulty.innerHTML = Player.avgDiff.toFixed(3)
@@ -68,6 +67,8 @@ let startGame = () => {
 function begin() {
     const modal = document.querySelector(".modal")
     const infoPanel = document.querySelector(".infoPanel")
+    getPlayerInfo(scoreStr)
+
     Player.totGame <= 3 ? showInfo(infoPanel) : openModal(modal)  
     
     openModal(modal) 
