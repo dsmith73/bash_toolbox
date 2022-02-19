@@ -12,12 +12,17 @@ var slider = document.getElementById("myRange");
 var output = document.getElementById("value");
 const alertContainer = document.querySelector("[data-alert-container]")
 const keyboard = document.querySelector("[data-keyboard]")
-// let key = document.querySelector(".key")
 const guessGrid = document.querySelector("[data-guess-grid]")
+
+// declarations for pop.js
 const openModalButton = document.querySelectorAll('[data-modal-target]')
 const closeModalButton = document.querySelectorAll('[data-close-button]')
+const openInfoButton = document.querySelectorAll('[data-info-target]')
+const closeInfoButton = document.querySelectorAll('[info-close-button]')
 const overlay = document.getElementById('overlay')
 const gear = document.querySelector(".options")  
+
+// console.log(openInfoButton)
 
 //check if touchevent is available  
 let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click'
