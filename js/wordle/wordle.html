@@ -11,11 +11,12 @@
         <script src="./scripts/pop.js" defer></script>
         <title>Wordle</title>
         <body class="game">
+            <!-- Wordle Clone -->
             <div data-guess-grid class="guess-grid">
                 <div class="tile"></div>
             </div>
-            <div class="alert-container" data-alert-container></div>
             <br>
+            <div class="alert-container" data-alert-container></div>
             <div data-keyboard class="keyboard">
                 <button class="key" data-key="Q">Q</button>
                 <button class="key" data-key="W">W</button>
@@ -49,10 +50,11 @@
                 <button data-delete class="key large">
                     <svg data-delete xmlns="http://www.w3.org/2000/svg" id="mdi-backspace-outline" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M19,15.59L17.59,17L14,13.41L10.41,17L9,15.59L12.59,12L9,8.41L10.41,7L14,10.59L17.59,7L19,8.41L15.41,12L19,15.59M22,3A2,2 0 0,1 24,5V19A2,2 0 0,1 22,21H7C6.31,21 5.77,20.64 5.41,20.11L0,12L5.41,3.88C5.77,3.35 6.31,3 7,3H22M22,5H7L2.28,12L7,19H22V5Z" /></svg>
-                </button>
+                </button> <!-- Backspace from: www.onlinewebfonts.com -->
                 
             </div>
             <br>
+            <!-- SVG icons from: https://www.iconpacks.net/ -->
             <button class="options" data-modal-target="#modal">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="50" height="50" viewBox="0 0 256 256" xml:space="preserve">
                     <g transform="translate(128 128) scale(0.72 0.72)">
@@ -66,9 +68,23 @@
                     </g>
                 </svg>
             </button>
+            <button class="info" data-info-target="#info">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="50" height="50" viewBox="0 0 256 256" xml:space="preserve">
+                    <g transform="translate(128 128) scale(0.72 0.72)">
+                        <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(-175.05 -175.05000000000004) scale(3.89 3.89)" >
+                        <path d="M 45 90 C 20.187 90 0 69.814 0 45 C 0 20.187 20.187 0 45 0 c 24.814 0 45 20.187 45 45 C 90 69.814 69.814 90 45 90 z M 45 5.625 C 23.289 5.625 5.625 23.289 5.625 45 c 0 21.712 17.664 39.375 39.375 39.375 c 21.712 0 39.375 -17.663 39.375 -39.375 C 84.375 23.289 66.712 5.625 45 5.625 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                    </g>
+                        <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(-125.55 -125.55000000000003) scale(2.79 2.79)" >
+                            <path d="M 45 90 C 20.187 90 0 69.813 0 45 S 20.187 0 45 0 s 45 20.187 45 45 S 69.813 90 45 90 z M 45 7.347 C 24.238 7.347 7.347 24.238 7.347 45 S 24.238 82.653 45 82.653 S 82.653 65.762 82.653 45 S 65.762 7.347 45 7.347 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(76,223,242); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                            <path d="M 12.374 15.851 l 0.797 -3.03 l 0.578 -2.104 c 0.482 -2.232 -4.512 -0.336 -5.243 0.234 l 0.059 0.67 c 0.666 -0.468 3.186 -1.068 2.683 0.59 l -0.225 0.846 l 0 0 l -1.149 4.287 c -0.482 2.232 4.512 0.337 5.243 -0.234 l -0.059 -0.67 C 14.392 16.909 11.872 17.509 12.374 15.851 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(76,223,242); fill-rule: nonzero; opacity: 1;" transform=" matrix(3.89 0 0 3.89 -1.9444444444444287 -1.9444444444444287) " stroke-linecap="round" />
+                            <circle cx="13.295" cy="7.275" r="1.545" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(76,223,242); fill-rule: nonzero; opacity: 1;" transform="  matrix(3.89 0 0 3.89 -1.9444444444444287 -1.9444444444444287) "/>
+                        </g>
+                    </g>
+                </svg>
+            </button>
             <div class="modal" id="modal">
                 <div class="modal-header">
-                    <div class="modal-title">Example Modal</div>
+                    <div class="modal-title">Game Data</div>
                     <button data-close-button class="close-button">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -85,7 +101,45 @@
                     <button data-close-button class="modal-begin">Play</button>
                 </div>
             </div>
+            <div class="infoPanel">
+                <div class="info-header">
+                    <div class="info-title">Playing the Game</div>
+                    <button info-close-button class="info-close-button">&times;</button>
+                </div>
+                <div class="info-body">
+                    <p>
+                        The object of the game is to guess the random word within six tries. When submitting a word, squares will highlight in different colors in the grid, and on your virtual keyboard.
+                    </p>
+                    <ul class="graySquare"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+                        <g transform="translate(128 128) scale(0.72 0.72)">
+                            <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(95,90,90); fill-rule: nonzero; opacity: 1;" transform="translate(-175.05 -175.05000000000004) scale(3.89 3.89)" >
+                                <path d="M 71.326 90 H 18.674 C 8.361 90 0 81.639 0 71.326 V 18.674 C 0 8.361 8.361 0 18.674 0 h 52.652 C 81.639 0 90 8.361 90 18.674 v 52.652 C 90 81.639 81.639 90 71.326 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(95,90,90); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                            </g>
+                        </g>
+                        </svg> represents a letter that is not part of the word.</ul>
+                    <ul class="yellowSquare"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+                        <g transform="translate(128 128) scale(0.72 0.72)">
+                            <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(208,186,74); fill-rule: nonzero; opacity: 1;" transform="translate(-175.05 -175.05000000000004) scale(3.89 3.89)" >
+                                <path d="M 71.326 90 H 18.674 C 8.361 90 0 81.639 0 71.326 V 18.674 C 0 8.361 8.361 0 18.674 0 h 52.652 C 81.639 0 90 8.361 90 18.674 v 52.652 C 90 81.639 81.639 90 71.326 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(208,186,74); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                            </g>
+                        </g>
+                        </svg> represents a letter which is in the word, but in the wrong position.</ul>
+                    <ul class="greenSquare"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+                        <g transform="translate(128 128) scale(0.72 0.72)">
+                            <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(81,171,73); fill-rule: nonzero; opacity: 1;" transform="translate(-175.05 -175.05000000000004) scale(3.89 3.89)" >
+                                <path d="M 71.326 90 H 18.674 C 8.361 90 0 81.639 0 71.326 V 18.674 C 0 8.361 8.361 0 18.674 0 h 52.652 C 81.639 0 90 8.361 90 18.674 v 52.652 C 90 81.639 81.639 90 71.326 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(81,171,73); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                            </g>
+                        </g>
+                        </svg> represents a letter which is in the word and is in the correct position.</ul>
+                    <p>Additionally, you can increase the level of difficulty by moving the Difficulty Slider to the right.</p>
+                    <p>Good Luck!</p>
+                    <div class="okay">
+                        <button info-close-button class="info-close">OK</button>
+                    </div>
+                </div>
+            </div>
             <div id="overlay"></div>
+            
         </body>
     </head>
 </html>
