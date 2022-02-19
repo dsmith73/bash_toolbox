@@ -24,7 +24,6 @@ overlay.addEventListener('click', () => {
 closeModalButton.forEach(button => {
     button.addEventListener('click', () => {
         // get #modal from data-modal-target
-        // const modal = document.querySelector(button.dataset.modalTarget)
         const modal = button.closest('.modal')  // get closest parent element with class modal  
         closeModal(modal)
     })
@@ -56,7 +55,8 @@ function closeModal(modal) {
 }
 
 // Difficulty Slider  
-slider.value = parseInt(Player.lastDiff)
+// get slider value from last saved game, else set value to default (5)  
+scoreStr === null ? slider.value = 5 : slider.value = Player.lastGrid 
 output.innerHTML = slider.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
