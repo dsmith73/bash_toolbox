@@ -42,7 +42,7 @@ const SAVE_KEY_SCORE = "wordle-dsmith73-player"   // save key for local storage 
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
 // score handling (resetting / retrieving)
-let scoreReset = false
+let scoreReset = true
 let scoreStr
 
 scoreReset === true ? 
