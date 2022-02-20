@@ -84,9 +84,9 @@ function startInteraction() {
 }
 
 function getPlayerInfo(scoreStr) {
-    // Get locally saved object and load into Player{}  
-    
+    scoreReset === true ? scoreStr = localStorage.getItem(SAVE_KEY_SCORE) : scoreStr
 
+    // Get locally saved object and load into Player{}  
     // if new player, use values in Player, otherwise, load pObject values  
     if (scoreStr === null ) {
         Player
