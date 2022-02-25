@@ -687,8 +687,8 @@ body {
     cursor: pointer;
     border: none;
     top: 26%;
-    left: 89%;
-    transform: translate(0%, -89%);   /* center in container  */
+    left: 89.5%;
+    transform: translate(0%, -89.5%);   /* center in container  */
     transition: 500ms ease-in-out;
     transform: rotate(-45deg);
     position: fixed;
