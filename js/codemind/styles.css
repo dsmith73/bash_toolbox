@@ -513,7 +513,7 @@ body {
     align-items: center;
     cursor: pointer;
     border: none;
-    top: 17%;
+    top: 20%;
     left: 88%;
     transform: translate(0%, -88%);   /* center in container  */
     position: fixed;
@@ -684,9 +684,9 @@ body {
     align-items: center;
     cursor: pointer;
     border: none;
-    top: 19%;
-    left: 89.5%;
-    transform: translate(0%, -89.5%);   /* center in container  */
+    top: 50%;
+    left: 1%;
+    transform: translate(0%, -1%);   /* center in container  */
     transition: 500ms ease-in-out;
     transform: rotate(-45deg);
     position: fixed;
