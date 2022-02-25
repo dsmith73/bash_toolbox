@@ -110,14 +110,16 @@ body {
 .key.large {
     grid-column: span 3;
     border-radius: .25em;
-    background-color: hsl(
+    background-color: dimgray;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgb(105, 105, 105), rgb(105, 105, 105), rgba(0,0,0,0.5));
+    /* background-color: hsl(
         var(--hue, 200), 
         var(--saturation, 1%), 
         calc(
             var(--lightness-offset, 0%) + 
             var(--lightness, 51%)
         )
-    );
+    ); */
     color: hsl(0, 0%, 100%);
     fill: white;
 }
@@ -684,9 +686,9 @@ body {
     align-items: center;
     cursor: pointer;
     border: none;
-    top: 50%;
-    left: 1%;
-    transform: translate(0%, -1%);   /* center in container  */
+    top: 26%;
+    left: 89%;
+    transform: translate(0%, -89%);   /* center in container  */
     transition: 500ms ease-in-out;
     transform: rotate(-45deg);
     position: fixed;
