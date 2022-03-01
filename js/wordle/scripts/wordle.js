@@ -54,8 +54,7 @@ scoreReset === true ?
 let screenHeight = window.innerHeight
 let screenWidth = window.innerWidth
 
-if (screenHeight < 850 ) scale = 3
-
+if (screenHeight < 850 || screenWidth < 475) scale = 3
 
 
 function destroyGrid() {
