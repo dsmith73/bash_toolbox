@@ -19,7 +19,7 @@ body {
     background-color: hsl(240, 3%, 7%);
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
     padding: 1em;
     font-size: clamp(.5rem, 2.5vh, 1.5rem);
@@ -265,9 +265,9 @@ body {
 
 /* Options Modal */
 .options {
-    color: #000000;
-    fill: none; 
-    background-color: #000000;
+    color: transparent;
+    fill: transparent; 
+    background-color: transparent;
     border: 0px;
     width: 1px;
 }
@@ -286,6 +286,21 @@ body {
     transition: 500ms ease-in-out;
     transform: rotate(-90deg);
     position: fixed;
+}
+
+.options path {
+    fill: rgb(0, 255, 242);
+}
+.options circle {
+    fill: rgb(0, 183, 255);
+}
+.options:hover path {
+    fill: rgb(255, 215, 129);
+    transition: 250ms ease-in-out;
+}
+.options.active path {
+    fill: #87ff7c;
+    transition: 500ms ease-in-out;
 }
 
 .options > svg:hover {
@@ -403,11 +418,11 @@ body {
 /* INFO */
 
 .info {
-    color: #000000;
-    fill: none; 
-    background-color: #000000;
+    color: transparent;
+    fill: transparent; 
+    background-color: transparent;
     border: 0px;
-    width: 1px;
+    /* width: 1px; */
 }
 
 .info > svg {
@@ -418,7 +433,7 @@ body {
     align-items: center;
     cursor: pointer;
     border: none;
-    top: 15%;
+    top: 25%;
     left: 93%;
     transform: translate(0%, -93%);   /* center in container  */
     position: fixed;
@@ -427,6 +442,27 @@ body {
 .info.active > svg {
     --lightness-offset: 20%;
     transition: 500ms ease-in-out;
+}
+
+.info path {
+    fill: rgb(0, 255, 242);
+}
+.info circle {
+    fill: rgb(0, 255, 242);
+}
+.info:hover path {
+    fill: rgb(255, 215, 129);
+    transition: 250ms ease-in-out;
+}
+.info:hover circle {
+    fill: rgb(114, 253, 86);
+}
+.info.active path {
+    fill: #87ff7c;
+    transition: 500ms ease-in-out;
+}
+.info.active circle {
+    fill: rgb(255, 145, 178);
 }
 
 .infoPanel {
@@ -486,7 +522,7 @@ body {
     color: rgb(30, 75, 158);
 }
 
-#overlay {
+/* #overlay {
     position: fixed;
     opacity: 0;
     background-color: rgba(0,0,0, .4);
@@ -501,7 +537,7 @@ body {
 #overlay.active {
     opacity: 1;
     pointer-events: all;
-}
+} */
 
 .okay {
     display: flex;
@@ -538,7 +574,12 @@ body {
     transition-duration: 50ms;
 }
 
-
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
 
 @media only screen and (max-height: 500px) and (max-width: 768px) and (orientation: landscape) {
     header {
@@ -546,4 +587,62 @@ body {
     }
 }
 
+@media only screen and (max-width: 800px) {
 
+    .options {
+        font-size: 1em;
+        color: rgb(189, 189, 189);
+        border: .05em solid rgb(77, 77, 77);
+        text-transform: capitalize;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        transition: transform 250ms linear;
+        width: 30%;
+    }
+
+    .options > svg {
+        display: none;
+    }
+    
+    .options:hover {
+        border-radius: .5em;
+        border-color: aqua;
+        color: aquamarine;
+        transition: 250ms ease-in-out;
+    }
+
+    .info {
+        font-size: 1em;
+        color: rgb(189, 189, 189);
+        border: .05em solid rgb(77, 77, 77);
+        text-transform: capitalize;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        transition: transform 250ms linear;
+        width: 30%;
+        /* border-color: rgb(92, 92, 92); */
+    }
+    
+    .info > svg {
+        display: none;
+    }
+    
+    .info:hover {
+        border-radius: .5em;
+        border-color: aqua;
+        color: aquamarine;
+        transition: 250ms ease-in-out;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .keyboard {
+        grid-auto-rows: 2.5em;
+    }
+}
